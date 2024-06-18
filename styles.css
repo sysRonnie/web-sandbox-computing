@@ -1,0 +1,422 @@
+:root {
+    --text-color: #FFFFFF;
+    --background-color: #121212;
+    --primary-color: #00FFD1;
+    --secondary-color: #635DFE;
+    --tertiary-color: #00B3FF;
+    --highlight-color: #EE5C5C; 
+    /* Add more variables as needed */
+}
+
+.rocketship {
+    position: absolute;
+    width: 40px;
+    height: 80px;
+    background-image: url('./assets/rocketship.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -999;
+    opacity: 0;
+}
+
+.portal {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color), 0 0 50px var(--secondary-color);
+    background: radial-gradient(circle, var(--secondary-color) 10%, var(--background-color) 80%);
+    animation: portal-glow 2s infinite alternate;
+    z-index: -1001;
+}
+
+@keyframes portal-glow {
+    from {
+        box-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color), 0 0 50px var(--secondary-color);
+    }
+    to {
+        box-shadow: 0 0 40px var(--secondary-color), 0 0 60px var(--secondary-color), 0 0 80px var(--secondary-color), 0 0 100px var(--secondary-color);
+    }
+}
+
+.fuel-orb {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--highlight-color) 20%, rgba(0, 0, 0, 0) 70%);
+    box-shadow: 0 0 10px var(--highlight-color), 0 0 40px var(--highlight-color);
+    animation: fuel-orb-blast 1s forwards;
+    z-index: -1002;
+}
+
+@keyframes fuel-orb-blast {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(0px) scale(1.5); /* Move up initially */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0px) scale(2); /* Disperse downwards */
+        opacity: 0;
+    }
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
+}
+
+.navbar-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--text-color);
+}
+
+.navbar-action-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 16px;
+    
+    margin-right: 5vw;
+}
+
+
+
+.navbar-main-logo{
+
+    margin-left: 5vw;
+    
+}
+
+.navbar-action-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.navbar-action-button img {
+    display: block;
+    pointer-events: none; /* Ensure the image doesn't interfere with button click */
+}
+
+.action-label{
+    font-weight: bold;
+    
+}
+
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--background-color);
+    width: 100vw;
+    height: 10vh;
+    transition: height 1s ease;
+    z-index: 10;
+}
+
+.navbar-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60vw;
+}
+
+.closeNavbar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+
+    height: 10vh;
+    border: 3px solid var(--secondary-color);
+    border-radius: 16px;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+@keyframes moveUpAndDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20%); }
+    100% { transform: translateY(0); }
+  }
+  
+.navbar-menu-close {
+animation: moveUpAndDown 2s infinite;
+}
+
+
+
+
+.navbar-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 1em;
+}
+
+
+
+
+
+h1 {
+    color: var(--text-color); /* Change this to your desired color */
+    /* Add any other styles you want for h1 tags */
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    height: 90vh;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.navbar-content.visible {
+    opacity: 1;
+}
+
+
+
+.unselectable {
+    user-select: none;
+    pointer-events: none;
+}
+
+
+.navbar-expanded-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.page-container {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.page {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.movement-button{
+    background-color: #121212;
+    height: 5vh;
+    width: 20vh;
+    margin-top: 20px;
+
+    border: 3px solid var(--primary-color);
+    border-radius: 16px;
+
+    color: var(--primary-color);
+
+    font-weight: bold;
+
+
+}
+
+
+#PageB-1R {
+    background-color: pink;
+}
+
+
+
+#PageC-1L {
+    background-color: green;
+}
+
+#PageD {
+    background-color: black;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: flex;
+}
+
+@media (max-width: 800px) {
+    .navbar-header {
+        display: none;
+    }
+}
+
+/* 
+///// Page A //////////////////////////////  */
+
+.cube {
+    position: relative;
+    width: 100px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(-45deg);
+    animation: rotate 5s infinite linear;
+}
+
+.cube .face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: none;
+    border: 6px solid var(--secondary-color);
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.website-title {
+    margin-top: 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.cube .front { transform: rotateY(0deg) translateZ(50px); }
+.cube .back { transform: rotateY(180deg) translateZ(50px); }
+.cube .left { transform: rotateY(-90deg) translateZ(50px); }
+.cube .right { transform: rotateY(90deg) translateZ(50px); }
+.cube .top { transform: rotateX(90deg) translateZ(50px); }
+.cube .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+.moon-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    height: 50px;
+}
+
+@keyframes rotate {
+    from { transform: rotateX(-30deg) rotateY(-45deg); }
+    to { transform: rotateX(-30deg) rotateY(315deg); }
+}
+
+
+/* 
+///// Page B //////////////////////////////  */
+
+
+.card-holding-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    max-width: 50vh;
+    min-width: 25vh;
+    gap: 8px; /* Fixed typo: 'gap: 8p' to 'gap: 8px' */
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   
+    border: 3px solid var(--text-color);
+    padding: 10px; /* Added padding for better spacing */
+    margin-bottom: 10px; /* Added margin for spacing between cards */
+    border-radius: 5px; /* Added border-radius for rounded corners */
+    width: 100%;
+}
+
+.card-icon {
+    height: 50px;
+}
+
+.card-comments {
+    flex: 1;
+    margin: 0 10px; /* Added margin for spacing between image and text */
+}
+
+.card-title, .card-subtitle {
+    margin: 0; /* Removed default margin */
+}
+
+.card-title {
+    font-size: 1.25em;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.card-subtitle {
+    font-size: 0.75em;
+    color: var(--text-color);
+}
+
+.action-button {
+    background-color: #121212;
+    border: 3px solid var(--secondary-color);
+    border-radius: 16px;
+    width: 10%;
+    animation: moveUpAndDown 2s infinite;
+}
+
+@keyframes moveUpAndDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateX(-20%); }
+    100% { transform: translateX(0); }
+}
+
+.click-through-img {
+    height: 50%;
+    width: 100%;
+    pointer-events: none; /* Makes the image ignore mouse events */
+}
+
+
+
+/* 
+///// Page C //////////////////////////////  */
+

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandbox Computing</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./assets/subLogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+
+<!-- Add an easter egg so that if someone opens the developer tools they can see the hidden message lol white text "Have fun looking around fellow developer :)" Do you like what you see?-->
+<body>
+    <div class="navbar"> 
+        <div class="spacer" style="width: 100vw; height: 2vh; "></div>
+        <div class="navbar-top">
+
+            
+
+            <div class="navbar-main-logo">
+                <img src="./assets/mainLogo_2.png" alt="Main Logo" style="height: 50px;">
+            </div>
+            
+
+            <div class="navbar-action-box">
+
+                <button id="toggleNavbar" class="navbar-action-button">
+                    <img src="./assets/navigationIcon.png" alt="Main Logo" style="height: 50px;">
+                    <span class="action-label" style="color: var(--primary-color);">Navigator</span>
+                </button>
+                
+                <button class="navbar-action-button">
+                    <img src="./assets/portalIcon.png" alt="Main Logo" style="height: 50px; ">
+                    <span class="action-label" style="color: var(--secondary-color);">Client Portal</span>
+                </button>
+            </div>
+            
+            
+        </div>
+        <div class="navbar-content hidden" id="navbarContent">
+            <div class="navbar-expanded-content">
+                
+                <div id="visualization" style="z-index: 1000;"></div> <!-- Container for D3 Visualization -->
+                
+                <button id="closeNavbar" class="closeNavbar"><img src="./assets/actionUp-purple.png" alt="Upwards Click Indicator" style="height: 30px;" class="navbar-menu-close"> Close Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-container">
+        <div id="PageA" class="page visible">
+            
+            <div class="cube">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+                <img class="moon-image" src="./assets/PageA/quarterMoon_teal.png" alt="moon logo" />
+            </div>  
+
+            <div class="website-title">
+                
+                <div class="text-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"></div>
+                    <h1 style="color: var(--primary-color); font-size: 1.5em; font-weight: bold; margin-bottom:0;">SANDBOX COMPUTING</h1>
+                    <h2 style="font-size: 1em;">WHERE <span style="color: var(--highlight-color); margin-top:0;">IMAGINATION</span> MEETS <span style="color: var(--secondary-color)">REALITY.</span></h2>
+                </div>
+                
+                <div class="text-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <h3 style="color: var(--text-color); margin-bottom:0;"> TECHNOLOGY LABOR SERVICE</h3>
+                    <h4 style="color: var(--text-color); margin-top:0;">CHAMPIONSHIP WINNING RESULTS</h4>
+                </div>
+
+                <div class="text-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <img src="./assets/americanFlag.png" style="margin-bottom: 10px;" alt="American Flag"/>
+
+                </div>
+
+                <button data-direction="down" data-current-page="PageA" data-next-page="PageB" class="movement-button"> Ready to explore? </button>
+                
+            </div>
+
+            <div id="PageB" class="page hidden">
+                <h1>Services</h1>
+                <button data-direction="up" data-current-page="PageB" data-next-page="PageA">Up</button>
+            
+                <div class="card-holding-container">
+                    <div class="card">
+                        <img src="./assets/softwareIcon.png" alt="Main Logo" class="card-icon">
+                        <div class="card-comments">
+                            <h1 class="card-title">Software Engineering:</h1>
+                            <h2 class="card-subtitle">Applications and User Experiences</h2>
+                        </div>
+                        <button data-direction="right" data-current-page="PageB" data-next-page="PageB-1R" class="action-button">
+                            <img src="./assets/actionRight-purple.png" alt="Upwards Click Indicator" class="click-through-img">
+                        </button>
+                    </div>
+                
+                    <div class="card">
+                        <img src="./assets/hardwareIcon.png" alt="Main Logo" class="card-icon">
+                        <div class="card-comments">
+                            <h1 class="card-title">Computer Engineering:</h1>
+                            <h2 class="card-subtitle">Custom Computing Hardware</h2>
+                        </div>
+                        <button data-direction="right" data-current-page="PageB" data-next-page="PageB-2R" class="action-button">
+                            <img src="./assets/actionRight-purple.png" alt="Upwards Click Indicator" class="click-through-img">
+                        </button>
+                    </div>
+
+
+           
+            
+                
+                    <span style="height: 5vh;"></span>
+
+
+                    <div class="card">
+                        <button data-direction="left" data-current-page="PageB" data-next-page="PageB-1L" class="action-button">
+                            <img src="./assets/actionLeft-purple.png" alt="Upwards Click Indicator" class="click-through-img">
+                        </button>
+                        
+                        <div class="card-comments">
+                            <h1 class="card-title">Cloud Computing:</h1>
+                            <h2 class="card-subtitle">Propreitary Server-Side Computing Technology</h2>
+                        </div>
+                        
+                        <img src="./assets/cloudIcon.png" alt="Main Logo"  class="card-icon">
+                    </div>
+                
+                    <div class="card">
+                        <button data-direction="left" data-current-page="PageB" data-next-page="PageB-2L" class="action-button">
+                            <img src="./assets/actionLeft-purple.png" alt="Upwards Click Indicator" class="click-through-img">
+                        </button>
+                        
+                        <div class="card-comments">
+                            <h1 class="card-title">Data Modeling:</h1>
+                            <h2 class="card-subtitle">Regression-Based Mathematical Modeling</h2>
+                        </div>
+                        <img src="./assets/modelingIcon.png" alt="Main Logo"  class="card-icon">
+                </div>
+            </div>
+
+            
+        
+        
+
+
+            <button data-direction="right" data-current-page="PageB" data-next-page="PageB-1R">Go to PageB-1R</button>
+            <button data-direction="right" data-current-page="PageB" data-next-page="PageB-2R">Go to PageB-2R</button>
+
+            <button data-direction="left" data-current-page="PageB" data-next-page="PageB-1L">Go to PageB-1L</button>
+            <button data-direction="left" data-current-page="PageB" data-next-page="PageB-2L">Go to PageB-2L</button>
+
+            <button data-direction="home" data-current-page="PageB" data-next-page="PageA">Home</button>
+            <button data-direction="down" data-current-page="PageB" data-next-page="PageC">Down</button>
+        </div>
+
+        <div id="PageB-1R" class="page hidden">
+            <h1>Hello World B-1R</h1>
+            <button data-direction="left" data-current-page="PageB-1R" data-next-page="PageB">Left</button>
+            <button data-direction="home" data-current-page="PageB-1R" data-next-page="PageA">Home</button>
+        </div>
+
+        <div id="PageB-2R" class="page hidden">
+            <h1>Hello World B-2R</h1>
+            <button data-direction="left" data-current-page="PageB-2R" data-next-page="PageB">Left</button>
+            <button data-direction="home" data-current-page="PageB-2R" data-next-page="PageA">Home</button>
+        </div>
+
+        <div id="PageB-1L" class="page hidden">
+            <h1>Hello World B-1L</h1>
+            <button data-direction="right" data-current-page="PageB-1L" data-next-page="PageB">Right</button>
+            <button data-direction="home" data-current-page="PageB-1L" data-next-page="PageA">Home</button>
+        </div>
+
+        <div id="PageB-2L" class="page hidden">
+            <h1>Hello World B-2L</h1>
+            <button data-direction="right" data-current-page="PageB-2L" data-next-page="PageB">Right</button>
+            <button data-direction="home" data-current-page="PageB-2L" data-next-page="PageA">Home</button>
+        </div>
+
+        <div id="PageC" class="page hidden">
+            <h1>Hello World C</h1>
+            <button data-direction="up" data-current-page="PageC" data-next-page="PageB">Up</button>
+            <button data-direction="down" data-current-page="PageC" data-next-page="PageD">Down</button>
+            <button data-direction="home" data-current-page="PageC" data-next-page="PageA">Home</button>
+        </div>
+
+
+        <div id="PageD" class="page hidden">
+            <h1>Hello World D</h1>
+            <button data-direction="up" data-current-page="PageD" data-next-page="PageC">Up</button>
+            <button data-direction="home" data-current-page="PageD" data-next-page="PageA">Home</button>
+        </div>
+    </div>
+
+    <script type="module" src="./javascript/navigator.js"></script>
+    <script type="module" src="./javascript/visualization.js"></script>
+    <script type="module" src="./javascript/navbar.js"></script>
+    <script type="module" src="./javascript/animation.js"></script>
+
+    
+</body>
+</html>
+
+
+
