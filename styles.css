@@ -181,7 +181,7 @@ body, html {
 
 @keyframes moveUpAndDown {
     0% { transform: translateY(0); }
-    50% { transform: translateY(-10%); }
+    50% { transform: translateY(10%); }
     100% { transform: translateY(0); }
 }
 
