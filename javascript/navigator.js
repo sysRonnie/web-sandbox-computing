@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 export function handleTransition(direction, currentPage, nextPage, timing, callback) {
-    console.log(`Starting transition from ${currentPage.id} to ${nextPage.id} via ${direction}`);
+    
 
     document.querySelectorAll('.page').forEach(page => {
         if (page !== currentPage) {
@@ -152,7 +152,7 @@ export function handleTransition(direction, currentPage, nextPage, timing, callb
     }
 
     setTimeout(() => {
-        console.log(`Completed transition from ${currentPage.id} to ${nextPage.id} via ${direction}`);
+        
         currentPage.classList.remove('visible');
         currentPage.classList.add('hidden');
         currentPage.style.transition = '';
@@ -192,7 +192,12 @@ function returnToHome() {
         performTransition();
     };
 
+    console.log('User Home Tracking:',userHomeTracking)
+    console.log(userHomeTracking[userHomeTracking.length - 1])
+
     const path = navMap.getPath(userHomeTracking[userHomeTracking.length - 1], 'PageA');
+
+    console.log('Home Path:', path)
     
     if (path) {
         executeTransitions(path);

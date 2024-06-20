@@ -10,9 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
         navbar.style.height = '100vh'; // Expand to 100vh
         toggleButton.style.display = 'none';
         setTimeout(() => {
-            navbarContent.classList.remove('hidden');
             navbarContent.classList.add('visible');
-        }, 500); // Delay of 1 second
+        }, 50); // Short delay to ensure height transition starts
         isExpanded = true;
     }
 
@@ -20,10 +19,18 @@ document.addEventListener("DOMContentLoaded", function() {
         navbar.style.height = '10vh'; // Collapse back to 10vh
         toggleButton.style.display = 'block';
         navbarContent.classList.remove('visible');
-        navbarContent.classList.add('hidden');
+        setTimeout(() => {
+            navbarContent.classList.add('hidden');
+        }, 500); // Delay to match the transition duration
         isExpanded = false;
     }
 
     toggleButton.addEventListener('click', expandNavbar);
     closeButton.addEventListener('click', collapseNavbar);
+
+    navbar.addEventListener('transitionend', (event) => {
+        if (!isExpanded && event.propertyName === 'height') {
+            navbarContent.classList.add('hidden');
+        }
+    });
 });

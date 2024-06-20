@@ -1,3 +1,9 @@
+/* This section is for setting the foundation of the design system */
+/* This section will contain the color pallette, fonts, sizes, and base components */
+
+
+/* START: Design Foundation */
+
 :root {
     --text-color: #FFFFFF;
     --background-color: #121212;
@@ -7,6 +13,200 @@
     --highlight-color: #EE5C5C; 
     /* Add more variables as needed */
 }
+
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
+    font-size: 16px;
+}
+
+.unselectable {
+    user-select: none;
+    pointer-events: none;
+}
+
+.card{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.action-button {
+    background-color: #121212;
+    border: 3px solid var(--secondary-color);
+    border-radius: 16px;
+    width: 10%;
+    animation: moveUpAndDown 2s infinite;
+}
+
+.action-icon-button {
+    background: none;
+    border: none;
+}
+
+
+
+/* FINISH: Design Foundation */
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* START: Navbar Section */
+
+
+.navbar-action-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 16px;
+    
+    margin-right: 5vw;
+}
+
+.navbar-main-logo{
+
+    margin-left: 5vw;
+    
+}
+
+.navbar-action-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.navbar-action-button img {
+    display: block;
+    pointer-events: none; /* Ensure the image doesn't interfere with button click */
+}
+
+.action-label{
+    font-weight: bold;   
+}
+
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--background-color);
+    width: 100vw;
+    transition: height 0.5s ease, opacity 0.5s ease;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.navbar-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1em; /* Adjust this value to add space at the top */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--background-color);
+    z-index: 11;
+}
+
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    height: 90vh;
+    opacity: 0;
+    margin-top: 10vh; /* Adjust this value to the height of your top navbar */
+    transition: opacity 0.5s ease;
+}
+
+.navbar-content.hidden {
+    opacity: 0;
+}
+
+.navbar-content.visible {
+    opacity: 1;
+}
+
+.navbar-expanded-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.closeNavbar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: 3px solid var(--primary-color);
+    border-radius: 16px;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* FINISH: Navbar Section */
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Animation Section */
+/* All animations are isolated to this section of the code base */
+
+/* START: Movement Indicators */
+
+@keyframes moveUpAndDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10%); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes moveDownAndUp {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10%); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes moveLeftAndRight {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-10%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes moveRightAndLeft {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10%); }
+    100% { transform: translateX(0); }
+}
+
+/* FINISH: Movement Indicators */
+
+
+/* START: Rocketship Animation */
 
 .rocketship {
     position: absolute;
@@ -64,169 +264,15 @@
 }
 
 
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--background-color);
-}
-
-.navbar-link {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    color: var(--text-color);
-}
-
-.navbar-action-box {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 16px;
-    
-    margin-right: 5vw;
-}
-
-
-
-.navbar-main-logo{
-
-    margin-left: 5vw;
-    
-}
-
-.navbar-action-button{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-}
-
-.navbar-action-button img {
-    display: block;
-    pointer-events: none; /* Ensure the image doesn't interfere with button click */
-}
-
-.action-label{
-    font-weight: bold;
-    
-}
-
-
-.navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: var(--background-color);
-    width: 100vw;
-    height: 10vh;
-    transition: height 1s ease;
-    z-index: 10;
-}
-
-.navbar-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 60vw;
-}
-
-.closeNavbar{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-
-    height: 10vh;
-    border: 3px solid var(--secondary-color);
-    border-radius: 16px;
-    background-color: var(--background-color);
-    color: var(--secondary-color);
-    font-weight: bold;
-}
-
-@keyframes moveUpAndDown {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-20%); }
-    100% { transform: translateY(0); }
-  }
-  
-.navbar-menu-close {
-animation: moveUpAndDown 2s infinite;
-}
-
-
-
-
-.navbar-top {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 1em;
-}
+/* FINISH: Rocketship Animation */
 
 
 
 
 
-h1 {
-    color: var(--text-color); /* Change this to your desired color */
-    /* Add any other styles you want for h1 tags */
-}
-
-.navbar-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    width: 100%;
-    height: 90vh;
-    opacity: 0;
-    transition: opacity 0.25s;
-}
-
-.navbar-content.visible {
-    opacity: 1;
-}
 
 
 
-.unselectable {
-    user-select: none;
-    pointer-events: none;
-}
-
-
-.navbar-expanded-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-
-.hidden {
-    display: none;
-}
 
 .page-container {
     position: absolute;
@@ -265,19 +311,6 @@ h1 {
 }
 
 
-#PageB-1R {
-    background-color: pink;
-}
-
-
-
-#PageC-1L {
-    background-color: green;
-}
-
-#PageD {
-    background-color: black;
-}
 
 .hidden {
     display: none;
@@ -287,11 +320,7 @@ h1 {
     display: flex;
 }
 
-@media (max-width: 800px) {
-    .navbar-header {
-        display: none;
-    }
-}
+
 
 /* 
 ///// Page A //////////////////////////////  */
@@ -342,81 +371,4 @@ h1 {
     to { transform: rotateX(-30deg) rotateY(315deg); }
 }
 
-
-/* 
-///// Page B //////////////////////////////  */
-
-
-.card-holding-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-    max-width: 50vh;
-    min-width: 25vh;
-    gap: 8px; /* Fixed typo: 'gap: 8p' to 'gap: 8px' */
-}
-
-.card {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-   
-    border: 3px solid var(--text-color);
-    padding: 10px; /* Added padding for better spacing */
-    margin-bottom: 10px; /* Added margin for spacing between cards */
-    border-radius: 5px; /* Added border-radius for rounded corners */
-    width: 100%;
-}
-
-.card-icon {
-    height: 50px;
-}
-
-.card-comments {
-    flex: 1;
-    margin: 0 10px; /* Added margin for spacing between image and text */
-}
-
-.card-title, .card-subtitle {
-    margin: 0; /* Removed default margin */
-}
-
-.card-title {
-    font-size: 1.25em;
-    font-weight: bold;
-    color: var(--secondary-color);
-}
-
-.card-subtitle {
-    font-size: 0.75em;
-    color: var(--text-color);
-}
-
-.action-button {
-    background-color: #121212;
-    border: 3px solid var(--secondary-color);
-    border-radius: 16px;
-    width: 10%;
-    animation: moveUpAndDown 2s infinite;
-}
-
-@keyframes moveUpAndDown {
-    0% { transform: translateY(0); }
-    50% { transform: translateX(-20%); }
-    100% { transform: translateX(0); }
-}
-
-.click-through-img {
-    height: 50%;
-    width: 100%;
-    pointer-events: none; /* Makes the image ignore mouse events */
-}
-
-
-
-/* 
-///// Page C //////////////////////////////  */
 

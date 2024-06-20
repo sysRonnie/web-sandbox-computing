@@ -45,8 +45,8 @@ function collectSequenceData() {
         }))
     );
 
-    console.log("Nodes and Links coming up!");
-    console.log(nodes, links);
+    
+    
     return { nodes, links };
 }
 
@@ -60,7 +60,7 @@ function applyNodeStyles(selection, currentPage) {
     } else {
         console.error('SVG element not found in the visualization container.');
     }
-    console.log('Node')
+    
     selection.select('circle')
         .attr('r', d => isSubTrack(d.id) ? 45 : 55)
         .attr('stroke', d => isSubTrack(d.id) ? '#00B3FF' : '#FFFFFF')
@@ -138,7 +138,7 @@ function createVisualization(data) {
         .data(data.links)
         .enter().append('line')
         .attr('stroke-width', 2)
-        .attr('stroke', '#FFFFFF');
+        .attr('stroke', '#EE5C5C');
 
     const node = svg.append('g')
         .attr('class', 'nodes')
@@ -158,7 +158,7 @@ function createVisualization(data) {
 
     node.append('text')
         .attr('dx', 0)
-        .attr('dy', '.35em')
+        .attr('dy', '.25em')
         .attr('text-anchor', 'middle')
         .attr('class', 'unselectable')
         .attr('fill', '#FFFFFF')
@@ -174,6 +174,28 @@ function createVisualization(data) {
         node
             .attr('transform', d => `translate(${d.x},${d.y})`);
     });
+
+    svg.append('text')
+        .attr('x', width / 2)
+        .attr('y', 20) // Adjust this value to position the text
+        .attr('text-anchor', 'middle')
+        .attr('font-size', '1.25rem')
+        .attr('class', 'unselectable')
+        .attr('fill', '#FFFFFF')
+        .text('Welcome to the Sandbox Terminal!');
+
+    svg.append('text')
+    .attr('x', width / 2)
+    .attr('y', 50) // Adjust this value to position the text
+    .attr('text-anchor', 'middle')
+    .attr('font-size', '1rem')
+    .attr('class', 'unselectable')
+    .attr('fill', '#FFFFFF')
+    .text('Please tap on your desired location to initate travel');
+
+    
+
+ 
 
     function dragstarted(event, d) {
         if (!event.active) simulation.alphaTarget(0.3).restart();
@@ -239,8 +261,7 @@ async function nodeClicked(node) {
     const startingPosition = document.querySelector('.visible:not([id*="navbar"])').id;
     const finalPosition = node.id;
 
-    console.log('starting position:', startingPosition);
-    console.log('final position:', finalPosition);
+    
 
     const path = navMap.getPath(startingPosition, finalPosition);
 
@@ -250,7 +271,7 @@ async function nodeClicked(node) {
         return;
     }
 
-    console.log('Navigation path:', path);
+    
 
     async function executePath(path) {
         for (let i = 1; i < path.length; i++) {
@@ -259,11 +280,11 @@ async function nodeClicked(node) {
             const connection = navMap.getConnections(currentPage.id).find(c => c.to === nextPage.id);
 
             if (connection) {
-                console.log(`Transition from ${currentPage.id} to ${nextPage.id} via ${connection.direction}`);
+                
                 await new Promise(resolve => {
                     handleTransition(connection.direction, currentPage, nextPage, 0.75, resolve);
                 });
-                console.log(`Finished transition from ${currentPage.id} to ${nextPage.id}`);
+                
             } else {
                 console.error(`No connection found from ${currentPage.id} to ${nextPage.id}`);
             }

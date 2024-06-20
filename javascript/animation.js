@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
 
+    if (currentPage.id !== 'PageA') {
+        return;
+    }
+
     function createCircle(x, y, size) {
         const circle = document.createElement('div');
         circle.className = 'portal';
