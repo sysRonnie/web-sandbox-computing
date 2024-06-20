@@ -1,15 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const currentPage = document.querySelector('.visible');
-
-    if (!currentPage) {
-        console.error('No visible page found.');
-        return;
-    }
-
-    if (currentPage.id !== 'PageA') {
-        return;
-    }
-
     function createCircle(x, y, size) {
         const circle = document.createElement('div');
         circle.className = 'portal';
@@ -90,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const rocketRect = rocket.getBoundingClientRect();
             fuelOrb.style.left = `${rocketRect.left + rocketRect.width / 2 - 10}px`;
             fuelOrb.style.top = `${rocketRect.top + rocketRect.height / 2 - 10}px`;
-            currentPage.appendChild(fuelOrb);
+            document.querySelector('.visible').appendChild(fuelOrb);
 
             setTimeout(() => fuelOrb.remove(), 1000);
 
@@ -103,6 +92,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function initializeAnimation() {
+        const currentPage = document.querySelector('.visible');
+        if (!currentPage || currentPage.id !== 'PageA') {
+            console.error('Animation paused: current page is not PageA.');
+            setTimeout(initializeAnimation, 1000); // Pause for a cycle before rechecking
+            return;
+        }
+
         currentPage.querySelectorAll('.portal, .random-line, .rocketship').forEach(element => element.remove());
 
         const containerWidth = currentPage.clientWidth;
@@ -165,7 +161,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     }
 
-    initializeAnimation();
+    document.addEventListener('DOMContentLoaded', initializeAnimation);
+    window.addEventListener('pageshow', initializeAnimation);
 });
 
 
