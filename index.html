@@ -66,8 +66,8 @@
             </div>
         </div> <!-- Closing the div for PageA -->
 
-        <div id="PageB" class="page hidden" style="margin-top: 5vh;"> <!-- Opening the div for PageB -->
-            <button class="action-icon-button" style="animation: moveUpAndDown 2s infinite; margin-bottom: 0;" data-direction="up" data-current-page="PageB" data-next-page="PageA"> <img src="./assets/actions/arrowUp.png" height="50px" class="unselectable" alt="An icon indicating upwards movement"/></button>
+        <div id="PageB" class="page hidden"> <!-- Opening the div for PageB -->
+            <button class="action-icon-button" style="background-color: blue; animation: moveUpAndDown 2s infinite; margin-bottom: 0; z-index: 15;" data-direction="up" data-current-page="PageB" data-next-page="PageA"> <img src="./assets/actions/arrowUp.png" height="50px" class="unselectable" alt="An icon indicating upwards movement"/></button>
 
             
 
@@ -88,7 +88,7 @@
             <div class="page-action-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width:  95vw; gap: 16px;">
 
                 <div class="page-action-card" style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; width: 100%; max-width: 500px;">
-                    <img src="./assets/PageB/softwareIcon.png" style="margin-left: 0;" alt="An icon for Software Engineering" />
+                    <img src="./assets/PageB/softwareIcon.png" style="margin-left: 0;" height="75px" alt="An icon for Software Engineering" />
                     <div class="action-title-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
                         <p style="margin-top: 0; color: var(--secondary-color); font-size: 1rem; font-weight: bold;">SOFTWARE ENGINEERING</h1>
                         <p style="margin-top: 0; color: var(--text-color); font-size: 1rem; font-weight: semi-bold;">Applications & User Experiences</p>
@@ -99,7 +99,7 @@
     
     
                 <div class="page-action-card" style="display: flex; flex-direction: row; align-items: center; justify-content: space-around; width: 100%; max-width: 500px;">
-                    <img src="./assets/PageB/hardwareIcon.png" style="margin-left: 0;" alt="An icon for Hardware Engineering" />
+                    <img src="./assets/PageB/hardwareIcon.png" height="75px" style="margin-left: 0;" alt="An icon for Hardware Engineering" />
                     <div class="action-title-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
                         <p style="margin-top: 0; color: var(--secondary-color); font-size: 1rem; font-weight: bold;">HARDWARE ENGINEERING</h1>
                         <p style="margin-top: 0; color: var(--text-color); font-size: 1rem; font-weight: semi-bold;">Custom Computing Hardware</p>
@@ -115,7 +115,7 @@
                         <p style="margin-top: 0; color: var(--secondary-color); font-size: 1rem; font-weight: bold;">CLOUD COMPUTING</h1>
                         <p style="margin-top: 0; color: var(--text-color); font-size: 1rem; font-weight: semi-bold;">Sustainable Server Technology</p>
                     </div>
-                    <img src="./assets/PageB/cloudIcon.png"  style="margin-right: 0;" alt="An icon for Cloud Computing" />
+                    <img src="./assets/PageB/cloudIcon.png"  style="margin-right: 0;" height="75px" alt="An icon for Cloud Computing" />
                 </div>
                 
     
@@ -126,13 +126,13 @@
                         <p style="margin-top: 0; color: var(--secondary-color); font-size: 1rem; font-weight: bold;">DATA MODELING</h1>
                         <p style="margin-top: 0; color: var(--text-color); font-size: 1rem; font-weight: semi-bold;"> Analytics & Visualization</p>
                     </div>
-                    <img src="./assets/PageB/modelingIcon.png" style="margin-right: 0;" alt="An icon for Data Modeling" />
+                    <img src="./assets/PageB/modelingIcon.png" style="margin-right: 0;" height="75px" alt="An icon for Data Modeling" />
                 </div>
     
             </div>
             
 
-            <button class="action-icon-button" style="animation: moveDownAndUp 2s infinite; margin-bottom: 0;"data-direction="down" data-current-page="PageB" data-next-page="PageC"><img src="./assets/actions/arrowDown.png" class="unselectable" alt="An icon indicating upwards movement"/></button>
+            <button class="action-icon-button" style="animation: moveDownAndUp 2s infinite; margin-bottom: 0; background-color: red;"data-direction="down" data-current-page="PageB" data-next-page="PageC"><img src="./assets/actions/arrowDown.png" class="unselectable" alt="An icon indicating upwards movement"/></button>
             
             
         </div> <!-- Closing the div for PageB -->
