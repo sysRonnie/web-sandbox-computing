@@ -1,9 +1,7 @@
 /* This section is for setting the foundation of the design system */
 /* This section will contain the color pallette, fonts, sizes, and base components */
 
-
 /* START: Design Foundation */
-
 :root {
     --text-color: #FFFFFF;
     --background-color: #121212;
@@ -14,7 +12,10 @@
     /* Add more variables as needed */
 }
 
-
+.highlighted-text{
+    color: var(--highlight-color); 
+    font-weight: bold;
+}
 
 body, html {
     margin: 0;
@@ -23,9 +24,47 @@ body, html {
     width: 100vw;
     height: 100vh;
     background-color: var(--background-color);
-    font-size: 14px;
+    font-size: 10px;
+    color: var(--text-color);
 }
 
+.page-container {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.page {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-button{
+    background-color: transparent;
+    height: 5vh;
+    width: 20vh;
+    margin-top: 20px;
+    border: 3px solid var(--primary-color);
+    border-radius: 16px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.action-icon-button {
+    background: none;
+    border: none;
+    
+}
+/* FINISH: Design Foundation */
+/* START: Base Components */
 .unselectable {
     user-select: none;
     pointer-events: none;
@@ -38,7 +77,28 @@ body, html {
     align-items: center;
 }
 
-.action-button {
+
+.action-container{display: flex; flex-direction: column; align-items: center; justify-content: center; width: 95vw; margin-top: 0;gap: 16px;}
+.action-tile{display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; max-width: 500px; }
+
+.title-container{display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px; max-width: 530px;}
+
+.website-title {
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 16px;
+}
+
+.spacer{height: 25px;}
+
+.title{text-align: center; font-size: 1.5em; font-weight: 800;}
+
+.sub-title {text-align: center; color: var(--text-color); font-size: 1rem; font-weight: bold; margin-bottom: 8px;}
+
+.movement-button {
     background-color: #121212;
     border: 3px solid var(--secondary-color);
     border-radius: 16px;
@@ -46,38 +106,30 @@ body, html {
     animation: moveUpAndDown 2s infinite;
 }
 
-.action-icon-button {
-    background: none;
-    border: none;
-}
+/* FINISH: Base Components */
 
-.sub-title {color: var(--text-color); font-size: 1em;}
-  .design-animation-container { margin-top: 10px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; grid-template-rows: repeat(7, 1fr); width: 90vw; height: 40vh; max-width: 600px; }
-  .design-animation-cell { width: 100%; height: 100%; border: 1px solid var(--background-color); border-radius: 5px; box-sizing: border-box; display: flex; justify-content: center; align-items: center; }
-  .design-animation-label-container{ display: flex; flex-direction: row; justify-content: space-evenly; align-items: center; width: 100%; max-width: 600px;}
-  .highlight-badge { border: 3px solid; padding: 8px; border-radius: 8px; text-align: center; font-weight: bold;}
+/* START: DYNAMIC COMPONENTS */
 
-/* FINISH: Design Foundation */
+.design-animation-container { margin-top: 10px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; grid-template-rows: repeat(7, 1fr); width: 90vw; height: 30vh; max-width: 600px; }
+.design-animation-cell { width: 100%; height: 100%; border: 1px solid var(--background-color); border-radius: 5px; box-sizing: border-box; display: flex; justify-content: center; align-items: center; }
+.design-animation-label-container{ display: flex; flex-direction: row; justify-content: space-evenly; align-items: center; width: 100%; max-width: 600px;}
+.highlight-badge { border: 3px solid; padding: 8px; border-radius: 8px; text-align: center; font-weight: bold;}
 
-/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-/* START: Navbar Section */
+/* FINISH: DYNAMIC COMPONENTS */
 
 
+/* START: Navbar */
 .navbar-action-box {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     gap: 16px;
-    
     margin-right: 5vw;
 }
 
 .navbar-main-logo{
-
     margin-left: 5vw;
-    
 }
 
 .navbar-action-button{
@@ -85,7 +137,6 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     background: none;
     border: none;
     padding: 0;
@@ -95,10 +146,6 @@ body, html {
 .navbar-action-button img {
     display: block;
     pointer-events: none; /* Ensure the image doesn't interfere with button click */
-}
-
-.action-label{
-    font-weight: bold;   
 }
 
 
@@ -127,8 +174,7 @@ body, html {
     position: fixed;
     top: 0;
     left: 0;
-    background: none;
-    
+    background: transparent;
     z-index: 11;
 }
 
@@ -174,13 +220,109 @@ body, html {
     color: var(--primary-color);
     font-weight: bold;
 }
+/* FINISH: Navbar */
 
-/* FINISH: Navbar Section */
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------- */
-
 /* Animation Section */
-/* All animations are isolated to this section of the code base */
+/* All animations are isolated to this section*/
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* START: Sandbox Cube */
+.sandbox-cube {
+    position: relative;
+    width: 100px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(-45deg);
+    animation: rotate 5s infinite linear;
+}
+
+.sandbox-cube .sandbox-cube-face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: none;
+    border: 6px solid var(--secondary-color);
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.sandbox-cube .front { transform: rotateY(0deg) translateZ(50px); }
+.sandbox-cube .back { transform: rotateY(180deg) translateZ(50px); }
+.sandbox-cube .left { transform: rotateY(-90deg) translateZ(50px); }
+.sandbox-cube .right { transform: rotateY(90deg) translateZ(50px); }
+.sandbox-cube .top { transform: rotateX(90deg) translateZ(50px); }
+.sandbox-cube .bottom { transform: rotateX(-90deg) translateZ(50px); }
+
+.moon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    height: 50px;
+}
+
+@keyframes rotate {
+    from { transform: rotateX(-30deg) rotateY(-45deg); }
+    to { transform: rotateX(-30deg) rotateY(315deg); }
+}
+/* FINISH: Sandbox Cube */
+
+/* START: Rocketship Animation */
+.rocketship {
+    position: absolute;
+    width: 40px;
+    height: 80px;
+    background-image: url('./assets/rocketship.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -999;
+    opacity: 0;
+}
+
+.portal {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color), 0 0 50px var(--secondary-color);
+    background: radial-gradient(circle, var(--highlight-color) 10%, var(--background-color) 80%);
+    animation: portal-glow 2s infinite alternate;
+    z-index: -1001;
+}
+
+@keyframes portal-glow {
+    from {
+        box-shadow: 0 0 20px var(--highlight-color), 0 0 30px var(--highlight-color), 0 0 40px var(--highlight-color), 0 0 50px var(--highlight-color);
+    }
+    to {
+        box-shadow: 0 0 40px var(--highlight-color), 0 0 60px var(--highlight-color), 0 0 80px var(--highlight-color), 0 0 100px var(--highlight-color);
+    }
+}
+
+.fuel-orb {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--secondary-color) 20%, var(--background-color) 70%);
+    box-shadow: 0 0 10px var(--secondary-color), 0 0 40px var(--secondary-color);
+    animation: fuel-orb-blast 1s forwards;
+    z-index: -1002;
+}
+
+@keyframes fuel-orb-blast {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(0px) scale(1.5); /* Move up initially */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0px) scale(2); /* Disperse downwards */
+        opacity: 0;
+    }
+}
 
 /* START: Movement Indicators */
 
@@ -211,169 +353,16 @@ body, html {
 /* FINISH: Movement Indicators */
 
 
-/* START: Rocketship Animation */
-
-.rocketship {
-    position: absolute;
-    width: 40px;
-    height: 80px;
-    background-image: url('./assets/rocketship.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: -999;
-    opacity: 0;
-}
-
-.portal {
-    position: absolute;
-    border-radius: 50%;
-    box-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color), 0 0 50px var(--secondary-color);
-    background: radial-gradient(circle, var(--secondary-color) 10%, var(--background-color) 80%);
-    animation: portal-glow 2s infinite alternate;
-    z-index: -1001;
-}
-
-@keyframes portal-glow {
-    from {
-        box-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color), 0 0 50px var(--secondary-color);
-    }
-    to {
-        box-shadow: 0 0 40px var(--secondary-color), 0 0 60px var(--secondary-color), 0 0 80px var(--secondary-color), 0 0 100px var(--secondary-color);
-    }
-}
-
-.fuel-orb {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--highlight-color) 20%, rgba(0, 0, 0, 0) 70%);
-    box-shadow: 0 0 10px var(--highlight-color), 0 0 40px var(--highlight-color);
-    animation: fuel-orb-blast 1s forwards;
-    z-index: -1002;
-}
-
-@keyframes fuel-orb-blast {
-    0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: translateY(0px) scale(1.5); /* Move up initially */
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(0px) scale(2); /* Disperse downwards */
-        opacity: 0;
-    }
-}
-
-
 /* FINISH: Rocketship Animation */
 
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* FINISH: Animation Section */
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
 
-
-
-
-
-
-
-
-.page-container {
-    position: absolute;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.page {
-    position: absolute;
-    width: 100vw;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.movement-button{
-    background-color: #121212;
-    height: 5vh;
-    width: 20vh;
-    margin-top: 20px;
-
-    border: 3px solid var(--primary-color);
-    border-radius: 16px;
-
-    color: var(--primary-color);
-
-    font-weight: bold;
-
-
-}
-
-
-
+/* The Chef's Kiss :) */
 .hidden {
     display: none;
 }
-
 .visible {
     display: flex;
 }
-
-
-
-/* 
-///// Page A //////////////////////////////  */
-
-.cube {
-    position: relative;
-    width: 100px;
-    transform-style: preserve-3d;
-    transform: rotateX(-30deg) rotateY(-45deg);
-    animation: rotate 5s infinite linear;
-}
-
-.cube .face {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: none;
-    border: 6px solid var(--secondary-color);
-    border-radius: 10px;
-    margin-bottom: 50px;
-}
-
-.website-title {
-    margin-top: 125px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--text-color);
-}
-
-.cube .front { transform: rotateY(0deg) translateZ(50px); }
-.cube .back { transform: rotateY(180deg) translateZ(50px); }
-.cube .left { transform: rotateY(-90deg) translateZ(50px); }
-.cube .right { transform: rotateY(90deg) translateZ(50px); }
-.cube .top { transform: rotateX(90deg) translateZ(50px); }
-.cube .bottom { transform: rotateX(-90deg) translateZ(50px); }
-
-.moon-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    height: 50px;
-}
-
-@keyframes rotate {
-    from { transform: rotateX(-30deg) rotateY(-45deg); }
-    to { transform: rotateX(-30deg) rotateY(315deg); }
-}
-
-

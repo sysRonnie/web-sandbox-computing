@@ -39,102 +39,212 @@
         </div>
     </div>
 
-    <div class="page-container"> <!-- Opening the div for the page-container -->
-        <div id="PageA" class="page visible"> <!-- Opening the div for PageA -->
-            <div class="cube">
-                <div class="face front"></div>
-                <div class="face back"></div>
-                <div class="face left"></div>
-                <div class="face right"></div>
-                <div class="face top"></div>
-                <div class="face bottom"></div>
-                <img class="moon-image" src="./assets/PageA/quarterMoon_teal.png" alt="moon logo" />
-            </div>  
-            <div class="website-title">
-                <div class="text-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                    <h1 style="color: var(--primary-color); font-size: 1.25em; font-weight: bold; margin-bottom:0;">SANDBOX COMPUTING</h1>
-                    <h2 style="font-size: 1em;">WHERE <span style="color: var(--highlight-color); margin-top:0;">IMAGINATION</span> MEETS <span style="color: var(--secondary-color)">REALITY.</span></h2>
-                </div>
-                <div class="text-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                    <h3 style="color: var(--text-color); margin-bottom:0;"> TECHNOLOGY LABOR SERVICE</h3>
-                    <h4 style="color: var(--text-color); margin-top:0;">CHAMPIONSHIP WINNING PRODUCTS</h4>
-                </div>
-                <div class="text-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                    <img src="./assets/americanFlag.png" style="margin-bottom: 10px;" alt="American Flag"/>
-                </div>
-                <button data-direction="down" data-current-page="PageA" data-next-page="PageB" class="movement-button" style="margin-bottom: 0;"> Ready to explore? </button>
-            </div>
-        </div> <!-- Closing the div for PageA -->
+    <div class="page-container"> <!-- OPENING: Container, "page-container" -->
+        <div id="PageA" class="page visible"> <!-- OPENING: Page, "PageA" -->
+            <div class="sandbox-cube"> <!-- OPENING: Parent, "sandbox-cube" -->
+                <div class="sandbox-cube-face front"></div>
+                <div class="sandbox-cube-face back"></div>
+                <div class="sandbox-cube-face left"></div>
+                <div class="sandbox-cube-face right"></div>
+                <div class="sandbox-cube-face top"></div>
+                <div class="sandbox-cube-face bottom"></div>
+                <img class="moon" src="./assets/PageA/quarterMoon_teal.png" alt="moon logo" />
+            </div>  <!-- CLOSING: Parent, "sandbox-cube" -->
 
-        <div id="PageB" class="page hidden"> <!-- Opening the div for PageB -->
-            <button class="action-icon-button" style="animation: moveUpAndDown 2s infinite; margin-bottom: -20px; z-index: 15;" data-direction="up" data-current-page="PageB" data-next-page="PageA"> <img src="./assets/actions/arrowUp.png" height="50px" class="unselectable" alt="An icon indicating upwards movement"/></button>
+            <div class="website-title"> <!-- OPENING: Parent, "website-title" -->
+                <div class="card"> <!-- OPENING: Child, "card" -->
+                    <div class="title" style="color: var(--primary-color)">
+                        SANDBOX COMPUTING
+                    </div>
+                    <div class="title"> 
+                        WHERE 
+                        <span style="color: var(--secondary-color);"> 
+                            IMAGINATION 
+                        </span> 
+                        MEETS 
+                        <span style="color: var(--highlight-color)">
+                        REALITY.
+                        </span>
+                    </div>
+                </div> <!-- CLOSING: Child, "card" -->
+
+                <div class="spacer"></div> <!-- SPACER -->
                 
-                <div class="page-description" style="display: flex; flex-direction:column; align-items: start; justify-content: center; padding: 8px;">
-                    <p style="color: var(--text-color); font-weight: semi-bold;">Sandbox Computing is a <span style="color: var(--highlight-color); font-weight: bold;">product design and development</span> agency based in the <span style="color: var(--highlight-color); font-weight: bold;">United States of America.</span></p>
-                    <p style="color: var(--text-color); font-weight: semi-bold;">We offer <span style="color: var(--highlight-color); font-weight: bold;">startups and established brands</span> the ability to <span style="color: var(--highlight-color); font-weight: bold;">rapidly expand their technology portfolio.</span></p>
-                    <p style="color: var(--text-color); font-weight: semi-bold;">We champion <span style="color: var(--highlight-color); font-weight: bold;">simple products</span>  that solve <span style="color: var(--highlight-color); font-weight: bold;">fundamental problems.</span></p>
-                </div>
-                
-                <div class="page-action-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 95vw; margin-top: 0;">
-                    <div class="page-action-card" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; max-width: 500px; margin-bottom: 20px;">
-                        <img src="./assets/PageB/softwareIcon.png" height="75px" alt="An icon for Software Engineering" />
-                        <div class="action-title-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-                            <p style="margin-bottom: 0; color: var(--secondary-color); font-size: 1rem; font-weight: bold;">SOFTWARE ENGINEERING</p>
-                            <p style="margin-top: 0; color: var(--text-color); font-size: 1rem; font-weight: semi-bold;">Applications & User Experiences</p>
+                <div class="card"> <!-- OPENING: Child, "card" -->
+                        <div class="title" style="color: var(--tertiary-color)"> 
+                            CUSTOM COMPUTING SOLUTIONS 
                         </div>
+                        <div class="title" style="color: var(--highlight-color)"> 
+                            CHAMPIONSHIP WINNING PRODUCTS 
+                        </div>
+                </div> <!-- CLOSING: Child, "card" -->
+            </div> <!-- CLOSING: Parent, "website-title" -->
+
+            <div class="card"> <!-- OPENING: Child, "card" -->
+                <img src="./assets/americanFlag.png" alt="American Flag"/>
+                <button class="action-button" data-direction="down" data-current-page="PageA" data-next-page="PageB">
+                    Care to explore? 
+                </button>            
+                <button class="action-icon-button" style="animation: moveDownAndUp 2s infinite; margin-top: 10px;" data-direction="down" data-current-page="PageA" data-next-page="PageB"> 
+                    <img src="./assets/actions/arrowDown-bare.png" class="unselectable" alt="An icon indicating upwards movement"/>
+                </button>
+            </div> <!-- CLOSING: Child, "card" -->
+        </div> <!-- CLOSING: Page, "PageA" -->
+
+        <div id="PageB" class="page hidden"> <!-- OPENING: Page, "PageB" -->
+
+            <button class="action-icon-button" style="animation: moveUpAndDown 2s infinite;" data-direction="up" data-current-page="PageB" data-next-page="PageA"> 
+                <img src="./assets/actions/arrowUp.png" class="unselectable" alt="An icon indicating upwards movement"/>
+            </button>
+                
+            <div class="title-container"> <!-- OPENING: Parent, "title-container" -->
+                <div class="sub-title"> <!-- OPENING: Child, "sub-title" -->
+                    SANDBOX COMPUTING IS A 
+                    <span class="highlighted-text">
+                        PRODUCT DESIGN AND DEVELOPMENT 
+                    </span>
+                    AGENCY BASED IN 
+                    <span class="highlighted-text">
+                        THE UNITED STATES OF AMERICA.
+                    </span>
+                </div> <!-- CLOSING: Child, "sub-title" -->
+                <div class="sub-title"> <!-- OPENING: Child, "sub-title" -->
+                    WE HELP
+                    <span class="highlighted-text">
+                        STARTUPS AND ESTABLISHED BRANDS 
+                    </span>
+                    DEVELOP TECHNOLOGY ASSETS 
+                    TO RAPIDLY EXPAND THEIR 
+                    <span class="highlighted-text">
+                        COMPUTING PORTFOLIO.
+                    </span>
+                </div> <!-- CLOSING: Child, "sub-title" -->
+                <div class="sub-title"> <!-- OPENING: Child, "sub-title" -->
+                    OUR MISSION IS TO
+                    <span class="highlighted-text"> 
+                        ACT AS A BRIDGE 
+                    </span>
+                    BETWEEN HUMANS AND MACHINES, SIMPLFYING 
+                    <span class="highlighted-text"> 
+                        THE WORLD OF TECHNOLOGY. 
+                    </span>
+                </div> <!-- CLOSING: Child, "sub-title" -->
+            </div> <!-- CLOSING: Parent, "title-container" -->
+                
+                <div class="action-container"> <!-- OPENING: Parent, "action-container" -->
+                    <div class="action-tile"> <!-- OPENING: Child, "action-tile" -->
+                        <img src="./assets/serviceIcons/softwareIcon.png" alt="An icon for Software Engineering" />
+                        <div class="action-title-card"> <!-- OPENING: Grand-Child, "action-title-card" -->
+                            <div class="title" style="color: var(--tertiary-color)">
+                                SOFTWARE ENGINEERING
+                            </div> 
+                            <div class="title"> 
+                                Applications & User Experiences
+                            </div> <!-- CLOSING: Grand-Child, "action-title-card" -->
+                        </div> <!-- CLOSING: Child, "action-tile" -->
+
                         <button class="action-icon-button" style="animation: moveRightAndLeft 2s infinite;" data-direction="right" data-current-page="PageB" data-next-page="PageB-1R">
                             <img src="./assets/actions/arrowRight.png" class="unselectable" alt="An icon indicating upwards movement"/>
                         </button>
-                    </div>
+                    </div> <!-- Closing: Parent, "action-container" -->
                 
-                    <div class="page-action-card" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; max-width: 500px; margin-bottom: 20px;">
-                        <img src="./assets/PageB/hardwareIcon.png" height="75px" alt="An icon for Hardware Engineering" />
-                        <div class="action-title-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-                            <p style="margin-bottom: 0; color: var(--secondary-color); font-size: 1rem; font-weight: bold;">HARDWARE ENGINEERING</p>
-                            <p style="margin-top: 0; color: var(--text-color); font-size: 1rem; font-weight: semi-bold;">Custom Computing Hardware</p>
-                        </div>
+                    <div class="action-tile"> <!-- OPENING: Child, "action-tile" -->
+                        <img src="./assets/serviceIcons/hardwareIcon.png" alt="An icon for Hardware Engineering" />
+                        <div class="action-title-card"> <!-- OPENING: Grand-Child, "action-tile-card" -->
+                            <div class="title" style="color: var(--tertiary-color)">
+                                COMPUTER ENGINEERING
+                            </div> 
+                            <div class="title">
+                                Custom Computing Hardware
+                            </div>
+                        </div> <!-- CLOSING: Grand-Child, "action-tile-card" -->
                         <button class="action-icon-button" style="animation: moveRightAndLeft 2s infinite;" data-direction="right" data-current-page="PageB" data-next-page="PageB-2R">
                             <img src="./assets/actions/arrowRight.png" class="unselectable" alt="An icon indicating upwards movement"/>
                         </button>
-                    </div>
+                    </div> <!-- CLOSING: Child, "action-tile" -->
                 
-                    <div class="page-action-card" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; max-width: 500px; margin-bottom: 20px;">
+                    <div class="action-tile"> <!-- OPENING: Child, "action-tile" -->
                         <button class="action-icon-button" style="animation: moveLeftAndRight 2s infinite;" data-direction="left" data-current-page="PageB" data-next-page="PageB-1L">
                             <img src="./assets/actions/arrowLeft.png" class="unselectable" alt="An icon indicating upwards movement"/>
                         </button>
-                        <div class="action-title-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-                            <p style="margin-bottom: 0; color: var(--secondary-color); font-size: 1rem; font-weight: bold;">CLOUD COMPUTING</p>
-                            <p style="margin-top: 0; color: var(--text-color); font-size: 1rem; font-weight: semi-bold;">Sustainable Server Technology</p>
-                        </div>
-                        <img src="./assets/PageB/cloudIcon.png" height="75px" alt="An icon for Cloud Computing" />
-                    </div>
+                        <div class="action-title-card"> <!-- OPENING: Grand-Child, "action-title-card" -->
+                            <div class="title" style="color: var(--tertiary-color)">
+                                CLOUD COMPUTING
+                            </div>
+                            <div class="title"> 
+                                Sustainable Server Technology
+                            </div>
+                        </div> <!-- CLOSING: Grand-Child, "action-title-card" -->
+                        <img src="./assets/serviceIcons/cloudIcon.png" alt="An icon for Cloud Computing" />
+                    </div> <!-- CLOSING: Child, "action-tile" -->
                 
-                    <div class="page-action-card" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; max-width: 500px;">
+                    <div class="action-tile"> <!-- OPENING: Child, "action-tile" -->
                         <button class="action-icon-button" style="animation: moveLeftAndRight 2s infinite;" data-direction="left" data-current-page="PageB" data-next-page="PageB-2L">
                             <img src="./assets/actions/arrowLeft.png" class="unselectable" alt="An icon indicating upwards movement"/>
                         </button>
-                        <div class="action-title-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-                            <p style="margin-bottom: 0; color: var(--secondary-color); font-size: 1rem; font-weight: bold;">DATA MODELING</p>
-                            <p style="margin-top: 0; color: var(--text-color); font-size: 1rem; font-weight: semi-bold;">Analytics & Visualization</p>
-                        </div>
-                        <img src="./assets/PageB/modelingIcon.png" height="75px" alt="An icon for Data Modeling" />
-                    </div>
-                </div>
-                
-            
-
+                        <div class="action-title-card"> <!-- OPENING: Grand-Child, "action-tile-card" -->
+                            <div class="title" style="color: var(--tertiary-color)">
+                                DATA MODELING
+                            </div>
+                            <div class="title">
+                                Analytics & Visualization
+                            </div>
+                        </div> <!-- CLOSING: Grand-Child, "action-tile-card" -->
+                        <img src="./assets/serviceIcons/modelingIcon.png" alt="An icon for Data Modeling" />
+                    </div> <!-- CLOSING: Child, "action-tile" -->
+                </div> 
             <button class="action-icon-button" style="animation: moveDownAndUp 2s infinite;"data-direction="down" data-current-page="PageB" data-next-page="PageC"><img src="./assets/actions/arrowDown.png" class="unselectable" alt="An icon indicating upwards movement"/></button>
-            
-            
-        </div> <!-- Closing the div for PageB -->
+        </div> <!-- CLOSING: Page, "PageB"-->
 
-        <div id="PageB-1R" class="page hidden"> <!-- Opening the div for PageB-1R -->
+        <div id="PageB-1R" class="page hidden"> <!-- OPENING: Page, "PageB-1R"-->
             
-                <div class="title-container" style="padding: 16px; max-width: 600px;">
-                  <div class="title" style="text-align: center; color: var(--text-color); font-size: 1.5em; font-weight: bold; margin-bottom: 8px;">Software Engineering</div>
-                  <div class="sub-title" style="margin-bottom: 10px;">We mix <span style="color: var(--highlight-color); font-weight: bold;">technical understanding</span> with <span style="color: var(--highlight-color); font-weight: bold;">innovative thinking</span> to champion <span style="color: var(--highlight-color); font-weight: bold;">unique experiences.</span></div>
-                  <div class="sub-title" style="color: var(--text-color); font-size: 1em;">We build <span style="color: var(--highlight-color); font-weight: bold;">simple applications</span> that <span style="color: var(--highlight-color); font-weight: bold;">maximize functionality.</span></div>
-                </div>
+                <div class="title-container"> <!-- OPENING: Parent, "title-container"-->
+                  <div class="title"> <!-- OPENING: Child, "title"-->
+                    Software Engineering
+                  </div> <!-- CLOSING: Child, "title"-->
+                  
+                  <div class="sub-title" style="margin-top: 10px;"> <!-- OPENING: Child, "sub-title"-->
+                    SANDBOX COMPUTING OFFERS  
+                    <span class="highlighted-text">
+                        SOFTWARE SOLUTIONS
+                    </span> 
+                    THAT ARE STANDARDIZED BY THEIR
+                    <span class="highlighted-text">
+                        SIMPLICITY, FUNCTIONALITIY,
+                    </span> 
+                    AND
+                    <span class="highlighted-text">
+                        ACCURACY.
+                    </span>
+                  </div> <!-- CLOSING: Child, "title"-->
+
+                  <div class="sub-title"> <!-- OPENING: Child, "sub-title"-->
+                    OUR APPROACH BLENDS
+                    <span class="highlighted-text">
+                        TECHNICAL UNDERSTANDING
+                    </span> 
+                    WITH
+                    <span class="highlighted-text">
+                        INNOVATIVE THINKING
+                    </span> 
+                    TO CHAMPION
+                    <span class="highlighted-text">
+                        UNIQUE EXPERIENCES.
+                    </span>
+                  </div> <!-- CLOSING: Child, "sub-title"-->
+
+                  <div class="sub-title"> <!-- OPENING: Child, "sub-title"-->
+                    THE GOAL IS TO BUILD
+                    <span class="highlighted-text">
+                        PRACTICAL APPLICATIONS
+                    </span> 
+                    THAT SOLVE
+                    <span class="highlighted-text">
+                        FUNDAMENTAL PROBLEMS
+                    </span> 
+                  </div> <!-- CLOSING: Child, "sub-title"-->
+                
+                </div> <!-- CLOSING: Parent, "title-container"-->
             
                 <div class="design-animation-label-container">
                   <div class="highlight-badge" style="color: var(--primary-color);">
@@ -155,7 +265,7 @@
                 <div class="design-animation-container" id="design-animation-container"></div>
             
                 <div class="technology-government-container" style="margin-top: 10px; border: 3px solid var(--secondary-color); border-radius: 16px; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 600px;">
-                  <div class="sub-title" style="font-weight: bold; margin-top: 10px;">Modern Development Standards</div>
+                  <div class="sub-title" style="font-weight: bold; margin-top: 10px;">Sandbox Computing practices modern development standards</div>
             
                   <div class="company-icon-container" style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; max-width: 600px; padding: 16px; width: 100%;">
                     <img src="./assets/corporateIcons/googleIcon.png">
@@ -164,11 +274,15 @@
                   </div>
             
                 </div>
-            
+                
                 <button class="action-icon-button" style="animation: moveLeftAndRight 2s infinite; margin-top: 10px;" data-direction="left" data-current-page="PageB-1R" data-next-page="PageB">
-                  <img src="./assets/actions/arrowLeft.png" class="unselectable" alt="An icon indicating upwards movement"/>
-                </button>            
-        </div> <!-- Closing the div for PageB-1R -->
+                    <img src="./assets/actions/arrowLeft.png" class="unselectable" alt="An icon indicating upwards movement"/>
+                </button>  
+            </div> 
+            
+            
+
+        </div> <!-- CLOSING: Page, "PageB-1R"-->
 
         <div id="PageB-2R" class="page hidden"> <!-- Opening the div for PageB-2R -->
             <h1>Hello World B-2R</h1>
@@ -204,13 +318,13 @@
             <button data-direction="home" data-current-page="PageD" data-next-page="PageA">Home</button>
         </div> <!-- Closing the div for PageD -->
 
-    </div> <!-- Closing the div for page-container -->
+    </div> <!-- Opening the holding container, "page-container" -->
 
     <script type="module" src="./javascript/navigator.js"></script>
     <script type="module" src="./javascript/applicationMap.js"></script>
     <script type="module" src="./javascript/navbar.js"></script>
     <script type="module" src="./javascript/animation.js"></script>
-    <script type="module" src="./designAnimation.js"></script>
+    <script type="module" src="./javascript/designAnimation.js"></script>
 </body>
 </html>
 
