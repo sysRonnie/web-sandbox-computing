@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+<title>Responsive Web Page Animation</title>
+<style>
+  body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+  .sub-title {color: var(--text-color); font-size: 1em;}
+  .design-animation-container { margin-top: 10px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; grid-template-rows: repeat(7, 1fr); width: 90vw; height: 40vh; max-width: 600px; }
+  .design-animation-cell { width: 100%; height: 100%; border: 1px solid var(--background-color); border-radius: 5px; box-sizing: border-box; display: flex; justify-content: center; align-items: center; }
+  .design-animation-label-container{ display: flex; flex-direction: row; justify-content: space-evenly; align-items: center; width: 100%; max-width: 600px;}
+  .highlight-badge { border: 3px solid; padding: 8px; border-radius: 8px; text-align: center; font-weight: bold;}
+</style>
+</head>
+<body>
+
+  <div class="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div class="title-container" style="padding: 16px; max-width: 600px;">
+      <div class="title" style="text-align: center; color: var(--text-color); font-size: 1.5em; font-weight: bold; margin-bottom: 8px;">Software Engineering</div>
+      <div class="sub-title" style="margin-bottom: 10px;">We mix <span style="color: var(--highlight-color); font-weight: bold;">technical understanding</span> with <span style="color: var(--highlight-color); font-weight: bold;">innovative thinking</span> to champion <span style="color: var(--highlight-color); font-weight: bold;">unique experiences.</span></div>
+      <div class="sub-title" style="color: var(--text-color); font-size: 1em;">We build <span style="color: var(--highlight-color); font-weight: bold;">simple applications</span> that <span style="color: var(--highlight-color); font-weight: bold;">maximize functionality.</span></div>
+    </div>
+
+    <div class="design-animation-label-container">
+      <div class="highlight-badge" style="color: var(--primary-color);">
+        Design.
+      </div>
+      <div class="highlight-badge" style="color: var(--secondary-color);">
+        Develop.
+      </div>
+      <div class="highlight-badge" style="color: var(--tertiary-color);">
+        Deploy.
+      </div>
+      <div class="highlight-badge" style="color: var(--highlight-color);">
+        Execute.
+      </div>
+    </div>
+    
+    
+    <div class="design-animation-container" id="design-animation-container"></div>
+
+    <div class="technology-government-container" style="margin-top: 10px; border: 3px solid var(--secondary-color); border-radius: 16px; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 600px;">
+      <div class="sub-title" style="font-weight: bold; margin-top: 10px;">Modern Development Standards</div>
+
+      <div class="company-icon-container" style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; max-width: 600px; padding: 16px; width: 100%;">
+        <img src="./assets/corporateIcons/googleIcon.png">
+        <img src="./assets/corporateIcons/appleIcon.png">
+        <img src="./assets/corporateIcons/windowsIcon.png">
+      </div>
+
+    </div>
+
+    <button class="action-icon-button" style="animation: moveLeftAndRight 2s infinite; margin-top: 10px;" data-direction="left" data-current-page="PageB" data-next-page="PageB-1L">
+      <img src="./assets/actions/arrowLeft.png" class="unselectable" alt="An icon indicating upwards movement"/>
+    </button>
+
+    
+  </div>
+  
+    
+    
+    <script type="module" src="./designAnimation.js"></script>
+</body>
+</html>
+

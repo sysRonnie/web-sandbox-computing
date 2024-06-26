@@ -68,11 +68,6 @@
 
         <div id="PageB" class="page hidden"> <!-- Opening the div for PageB -->
             <button class="action-icon-button" style="animation: moveUpAndDown 2s infinite; margin-bottom: -20px; z-index: 15;" data-direction="up" data-current-page="PageB" data-next-page="PageA"> <img src="./assets/actions/arrowUp.png" height="50px" class="unselectable" alt="An icon indicating upwards movement"/></button>
-
-            
-
-            
-                
                 
                 <div class="page-description" style="display: flex; flex-direction:column; align-items: start; justify-content: center; padding: 8px;">
                     <p style="color: var(--text-color); font-weight: semi-bold;">Sandbox Computing is a <span style="color: var(--highlight-color); font-weight: bold;">product design and development</span> agency based in the <span style="color: var(--highlight-color); font-weight: bold;">United States of America.</span></p>
@@ -80,11 +75,6 @@
                     <p style="color: var(--text-color); font-weight: semi-bold;">We champion <span style="color: var(--highlight-color); font-weight: bold;">simple products</span>  that solve <span style="color: var(--highlight-color); font-weight: bold;">fundamental problems.</span></p>
                 </div>
                 
-            
-            
-
-            
-
                 <div class="page-action-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 95vw; margin-top: 0;">
                     <div class="page-action-card" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; width: 100%; max-width: 500px; margin-bottom: 20px;">
                         <img src="./assets/PageB/softwareIcon.png" height="75px" alt="An icon for Software Engineering" />
@@ -139,9 +129,45 @@
         </div> <!-- Closing the div for PageB -->
 
         <div id="PageB-1R" class="page hidden"> <!-- Opening the div for PageB-1R -->
-            <h1>Hello World B-1R</h1>
-            <button data-direction="left" data-current-page="PageB-1R" data-next-page="PageB">Left</button>
-            <button data-direction="home" data-current-page="PageB-1R" data-next-page="PageA">Home</button>
+            
+                <div class="title-container" style="padding: 16px; max-width: 600px;">
+                  <div class="title" style="text-align: center; color: var(--text-color); font-size: 1.5em; font-weight: bold; margin-bottom: 8px;">Software Engineering</div>
+                  <div class="sub-title" style="margin-bottom: 10px;">We mix <span style="color: var(--highlight-color); font-weight: bold;">technical understanding</span> with <span style="color: var(--highlight-color); font-weight: bold;">innovative thinking</span> to champion <span style="color: var(--highlight-color); font-weight: bold;">unique experiences.</span></div>
+                  <div class="sub-title" style="color: var(--text-color); font-size: 1em;">We build <span style="color: var(--highlight-color); font-weight: bold;">simple applications</span> that <span style="color: var(--highlight-color); font-weight: bold;">maximize functionality.</span></div>
+                </div>
+            
+                <div class="design-animation-label-container">
+                  <div class="highlight-badge" style="color: var(--primary-color);">
+                    Design.
+                  </div>
+                  <div class="highlight-badge" style="color: var(--secondary-color);">
+                    Develop.
+                  </div>
+                  <div class="highlight-badge" style="color: var(--tertiary-color);">
+                    Deploy.
+                  </div>
+                  <div class="highlight-badge" style="color: var(--highlight-color);">
+                    Execute.
+                  </div>
+                </div>
+                
+                
+                <div class="design-animation-container" id="design-animation-container"></div>
+            
+                <div class="technology-government-container" style="margin-top: 10px; border: 3px solid var(--secondary-color); border-radius: 16px; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 600px;">
+                  <div class="sub-title" style="font-weight: bold; margin-top: 10px;">Modern Development Standards</div>
+            
+                  <div class="company-icon-container" style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; max-width: 600px; padding: 16px; width: 100%;">
+                    <img src="./assets/corporateIcons/googleIcon.png">
+                    <img src="./assets/corporateIcons/appleIcon.png">
+                    <img src="./assets/corporateIcons/windowsIcon.png">
+                  </div>
+            
+                </div>
+            
+                <button class="action-icon-button" style="animation: moveLeftAndRight 2s infinite; margin-top: 10px;" data-direction="left" data-current-page="PageB-1R" data-next-page="PageB">
+                  <img src="./assets/actions/arrowLeft.png" class="unselectable" alt="An icon indicating upwards movement"/>
+                </button>            
         </div> <!-- Closing the div for PageB-1R -->
 
         <div id="PageB-2R" class="page hidden"> <!-- Opening the div for PageB-2R -->
@@ -184,6 +210,7 @@
     <script type="module" src="./javascript/applicationMap.js"></script>
     <script type="module" src="./javascript/navbar.js"></script>
     <script type="module" src="./javascript/animation.js"></script>
+    <script type="module" src="./designAnimation.js"></script>
 </body>
 </html>
 
