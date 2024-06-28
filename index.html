@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 
 <!-- Add an easter egg so that if someone opens the developer tools they can see the hidden message lol white text "Have fun looking around fellow developer :)" Do you like what you see?-->
@@ -48,7 +47,7 @@
                 <div class="sandbox-cube-face right"></div>
                 <div class="sandbox-cube-face top"></div>
                 <div class="sandbox-cube-face bottom"></div>
-                <img class="moon" src="./assets/PageA/quarterMoon_teal.png" alt="moon logo" />
+                <img class="moon" src="./assets/quarterMoon_teal.png" alt="moon logo" />
             </div>  <!-- CLOSING: Parent, "sandbox-cube" -->
 
             <div class="website-title"> <!-- OPENING: Parent, "website-title" -->
@@ -243,10 +242,9 @@
                         FUNDAMENTAL PROBLEMS
                     </span> 
                   </div> <!-- CLOSING: Child, "sub-title"-->
-                
                 </div> <!-- CLOSING: Parent, "title-container"-->
             
-                <div class="design-animation-label-container">
+                <div class="design-animation-label-container"> <!-- OPENING: Parent, "design-animation-label-container"-->
                   <div class="highlight-badge" style="color: var(--primary-color);">
                     Design.
                   </div>
@@ -259,21 +257,20 @@
                   <div class="highlight-badge" style="color: var(--highlight-color);">
                     Execute.
                   </div>
-                </div>
+                </div> <!-- Closing: Parent, "design-animation-label-container"-->
                 
                 
-                <div class="design-animation-container" id="design-animation-container"></div>
-            
-                <div class="technology-government-container" style="margin-top: 10px; border: 3px solid var(--secondary-color); border-radius: 16px; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 600px;">
-                  <div class="sub-title" style="font-weight: bold; margin-top: 10px;">Sandbox Computing practices modern development standards</div>
-            
-                  <div class="company-icon-container" style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; max-width: 600px; padding: 16px; width: 100%;">
+                <div class="design-animation-container" id="design-animation-container"> <!-- Opening: Parent, "design-animation-container"-->
+                </div> <!-- Closing: Parent, "design-animation-container"-->
+
+                <div class="technology-container"> <!-- Opening: Parent, "technology-container"-->
+                  <div class="sub-title" style="font-weight: bold; margin-top: 10px;">Sandbox Computing practices modern development standards</div>  
+                  <div class="technology-icon-container"> <!-- Opening: Child, "technology-icon-container"-->
                     <img src="./assets/corporateIcons/googleIcon.png">
                     <img src="./assets/corporateIcons/appleIcon.png">
                     <img src="./assets/corporateIcons/windowsIcon.png">
-                  </div>
-            
-                </div>
+                  </div> <!-- Closing: Child, "technology-icon-container"-->
+                </div> <!-- Closing: Parent, "technology-container"-->
                 
                 <button class="action-icon-button" style="animation: moveLeftAndRight 2s infinite; margin-top: 10px;" data-direction="left" data-current-page="PageB-1R" data-next-page="PageB">
                     <img src="./assets/actions/arrowLeft.png" class="unselectable" alt="An icon indicating upwards movement"/>
@@ -297,9 +294,81 @@
         </div> <!-- Closing the div for PageB-1L -->
 
         <div id="PageB-2L" class="page hidden"> <!-- Opening the div for PageB-2L -->
-            <h1>Hello World B-2L</h1>
-            <button data-direction="right" data-current-page="PageB-2L" data-next-page="PageB">Right</button>
-            <button data-direction="home" data-current-page="PageB-2L" data-next-page="PageA">Home</button>
+            <div class="title-container"> <!-- OPENING: Parent, "title-container"-->
+                <div class="title"> <!-- OPENING: Child, "title"-->
+                  Data Modeling
+                </div> <!-- CLOSING: Child, "title"-->
+                
+                <div class="sub-title" style="margin-top: 10px;"> <!-- OPENING: Child, "sub-title"-->
+                  SANDBOX COMPUTING LEVERAGES   
+                  <span class="highlighted-text">
+                      ADVANCED-ANALYTICS
+                  </span> 
+                  TO UNLOCK
+                  <span class="highlighted-text">
+                      AREAS OF OPPORTUNITY
+                  </span> 
+                  AND GUIDE
+                  <span class="highlighted-text">
+                      STRATEGIC BUSINESS DEVELOPMENT.
+                  </span>
+                </div> <!-- CLOSING: Child, "title"-->
+        
+                <div class="sub-title"> <!-- OPENING: Child, "sub-title"-->
+                  WE STUDY AND IMPLEMENT 
+                  <span class="highlighted-text">
+                    REGRESSION-BASED MATHEMATICAL 
+                  </span> 
+                  SOLUTIONS TO HELP ALLEVIATE 
+                  <span class="highlighted-text">
+                      STRESS
+                  </span> 
+                  DURING THE
+                  <span class="highlighted-text">
+                      DECISION MAKING PROCESS. 
+                  </span>
+                </div> <!-- CLOSING: Child, "sub-title"-->
+        
+                <div class="sub-title"> <!-- OPENING: Child, "sub-title"-->
+                  OUR EXPERTISE IN 
+                  <span class="highlighted-text">
+                      DATA MINING
+                  </span> 
+                  ALLOWS US TO LOCATE AND EXTRACT
+                  <span class="highlighted-text">
+                      VALUABLE INFORMATION
+                  </span> 
+                  THAT OTHERWISE GOES
+                  <span class="highlighted-text">
+                    UNNOTICED.
+                  </span>
+                </div> <!-- CLOSING: Child, "sub-title"-->  
+            </div> <!-- CLOSING: Parent, "title-container"-->
+        
+            <div class="scatterplot-container" id="scatterplot-container"> <!-- OPENING: Parent, "scatterplot-container"-->
+            </div> <!-- CLOSING: Parent, "scatterplot-container"-->
+        
+            <div class="sub-title" style="font-weight: bold;"> <!-- OPENING: Parent, "sub-title"-->
+                OBSERVED DATA ACTS AS THE
+                <span class="highlighted-text">
+                    FUEL
+                </span>
+                THAT POWERS THE
+                <span class="highlighted-text"> DECISION MAKING ENGINE.  </span>
+            </div> <!-- CLOSING: Parent, "sub-title"-->
+        
+            <div class="technology-container">
+                <div class="sub-title" style="font-weight: bold; margin-top: 10px;">Sandbox Computing practices modern statisical standards</div>
+          
+                <div class="technology-icon-container" >
+                  <img src="./assets/corporateIcons/textbookIcon.png">
+                  <img src="./assets/corporateIcons/pythonIcon.png">
+                </div>
+            </div>
+        
+            <button class="action-icon-button" style="animation: moveLeftAndRight 2s infinite; margin-top: 10px;" data-direction="left" data-current-page="PageB" data-next-page="PageB-2L">
+                <img src="./assets/actions/arrowLeft.png" class="unselectable" alt="An icon indicating upwards movement"/>
+            </button>
         </div> <!-- Closing the div for PageB-2L -->
 
         <div id="PageC" class="page hidden"> <!-- Opening the div for PageC -->
@@ -320,11 +389,15 @@
 
     </div> <!-- Opening the holding container, "page-container" -->
 
+    <script src="https://d3js.org/d3.v6.min.js"></script>
     <script type="module" src="./javascript/navigator.js"></script>
     <script type="module" src="./javascript/applicationMap.js"></script>
+    
+    <script type="module" src="./javascript/designAnimation.js"></script>
+    <script type="module" src="./javascript/scatterplotAnimation.js"></script>
     <script type="module" src="./javascript/navbar.js"></script>
     <script type="module" src="./javascript/animation.js"></script>
-    <script type="module" src="./javascript/designAnimation.js"></script>
+    
 </body>
 </html>
 
