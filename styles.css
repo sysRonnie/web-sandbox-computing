@@ -109,13 +109,20 @@ body, html {
 .technology-container{margin-top: 10px; border: 3px solid var(--secondary-color); border-radius: 16px; width: 90%; display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 600px;}
 .technology-icon-container{display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; max-width: 600px; padding: 16px; width: 100%;}
 
+.text-container{
+    padding: 6px;
+    border: 3px solid var(--secondary-color);
+    border-radius: 8px;
+}
+
+.icon-stack{display: flex; flex-direction: column; align-items: center; justify-content: center;}
 /* FINISH: Base Components */
 
 /* START: DYNAMIC COMPONENTS */
 
 .design-animation-container { margin-top: 10px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; grid-template-rows: repeat(7, 1fr); width: 90vw; height: 30vh; max-width: 600px; }
 .design-animation-cell { width: 100%; height: 100%; border: 1px solid var(--background-color); border-radius: 5px; box-sizing: border-box; display: flex; justify-content: center; align-items: center; }
-.design-animation-label-container{ display: flex; flex-direction: row; justify-content: space-evenly; align-items: center; width: 100%; max-width: 600px;}
+.label-container{ display: flex; flex-direction: row; justify-content: space-evenly; align-items: center; width: 100%; max-width: 600px;}
 .highlight-badge { border: 3px solid; padding: 8px; border-radius: 8px; text-align: center; font-weight: bold;}
 
 
@@ -275,7 +282,7 @@ body, html {
     width: 100px;
     transform-style: preserve-3d;
     transform: rotateX(-30deg) rotateY(-45deg);
-    animation: rotate 5s infinite linear;
+    animation: rotateSandboxCube 5s infinite linear;
 }
 
 .sandbox-cube .sandbox-cube-face {
@@ -303,7 +310,7 @@ body, html {
     height: 50px;
 }
 
-@keyframes rotate {
+@keyframes rotateSandboxCube {
     from { transform: rotateX(-30deg) rotateY(-45deg); }
     to { transform: rotateX(-30deg) rotateY(315deg); }
 }
@@ -347,7 +354,7 @@ body, html {
     background: radial-gradient(circle, var(--secondary-color) 20%, var(--background-color) 70%);
     box-shadow: 0 0 10px var(--secondary-color), 0 0 40px var(--secondary-color);
     animation: fuel-orb-blast 1s forwards;
-    z-index: -1002;
+    z-index: -1000;
 }
 
 @keyframes fuel-orb-blast {
@@ -365,6 +372,8 @@ body, html {
     }
 }
 
+/* FINISH: Rocketship Animation */
+
 /* START: Movement Indicators */
 
 @keyframes moveUpAndDown {
@@ -375,7 +384,7 @@ body, html {
 
 @keyframes moveDownAndUp {
     0% { transform: translateY(0); }
-    50% { transform: translateY(10%); }
+    50% { transform: translateY(-10%); }
     100% { transform: translateY(0); }
 }
 
@@ -393,8 +402,51 @@ body, html {
 
 /* FINISH: Movement Indicators */
 
+.rotate-sun-icon {
+    display: inline-block; /* Ensure the icon is treated as an inline block */
+    animation: rotate 4s linear infinite; /* Adjust the duration as needed */
+}
 
-/* FINISH: Rocketship Animation */
+@keyframes rotate {
+from {
+    transform: rotate(0deg);
+}
+to {
+    transform: rotate(360deg);
+}
+}
+
+.pulse-chip-icon {
+display: inline-block;
+animation: pulse 2s infinite; /* Adjust the duration as needed */
+}
+
+@keyframes pulse {
+0%, 100% {
+    transform: scale(0.8);
+}
+50% {
+    transform: scale(1.1); /* Adjust the scale factor as needed */
+}
+}
+
+.glow-connection-icon {
+    display: inline-block;
+    animation: connectionGlow 1.5s infinite alternate; /* Adjust the duration as needed */
+}
+
+@keyframes connectionGlow {
+    0% {
+        filter: drop-shadow(0 0 5px var(--primary-color));
+      }
+      50% {
+        filter: drop-shadow(0 0 20px var(--primary-color)) drop-shadow(0 0 30px var(--primary-color)) drop-shadow(0 0 40px var(--primary-color)) drop-shadow(0 0 50px var(--primary-color));
+      }
+      100% {
+        filter: drop-shadow(0 0 5px var(--primary-color));
+      }
+}
+
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------- */
 /* FINISH: Animation Section */

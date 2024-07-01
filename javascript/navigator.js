@@ -214,6 +214,9 @@ document.querySelector('.page-container').addEventListener('click', function(eve
         const nextPageId = button.getAttribute('data-next-page');
         const timing = 1;
 
+        console.log(direction);
+        console.log(currentPageId);
+        console.log(nextPageId);
         let subTrackLocation = '';
         const currentTrackIndicator = currentPageId.slice(-3, -2);
 
