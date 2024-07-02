@@ -6,101 +6,84 @@
 <title>Responsive Web Page Animation</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-
+  .form-container {
+    margin: 20px 0;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    background-color: var(--background-color);
+    border: 3px solid var(--highlight-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  .form-group textarea {
+    height: 150px;
+    color: var(--text-color);
+  }
+  .submit-btn-container {
+    text-align: center;
+  }
+  .submit-btn {
+    padding: 10px 15px;
+    background-color: var(--highlight-color);
+    color: var(--background-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 16px;
+    font-weight: bold;
+  }
+  
 </style>
 </head>
 <body>
   <div class="page">
-    <div class="title-container"> <!-- OPENING: Parent, "title-container"-->
-      <div class="title"> <!-- OPENING: Child, "title"-->
-        Cloud Computing
-      </div> <!-- CLOSING: Child, "title"-->
-      
-      <div class="sub-title" style="margin-top: 10px;"> <!-- OPENING: Child, "sub-title"-->
-        SANDBOX COMPUTING IS DEVELOPING A  
-        <span class="highlighted-text">
-          PROPRIETARY COMPUTER OPERATING SYSTEM.
-        </span> 
-        
-
-      </div> <!-- CLOSING: Child, "title"-->
-
-      <div class="sub-title"> <!-- OPENING: Child, "sub-title"-->
-        OUR GOAL IS TO DEVELOP A
-        <span class="highlighted-text">
-            SECURE
-        </span> 
-        AND
-        <span class="highlighted-text">
-            ROBUST
-        </span>
-        CONNECTION OF COMPUTERS
-        <span class="highlighted-text">
-          ACROSS THE GLOBE.
-      </span>
-
-        
-      </div> <!-- CLOSING: Child, "sub-title"-->
-
-      <div class="sub-title"> <!-- OPENING: Child, "sub-title"-->
-        WE USE MACHINES TO 
-        <span class="highlighted-text">
-            BUILD SYSTEMS
-        </span> 
-        THAT CONNECT HUMANS
-        <span class="highlighted-text">
-            ACROSS THE GLOBE.
-        </span> 
-        
-      </div> <!-- CLOSING: Child, "sub-title"-->  
-    </div> <!-- CLOSING: Parent, "title-container"-->
-
-    <div class="title"> Sandbox Network </div>
-    <div class="cloud-model" style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center; gap: 16px; margin-top: 10px;">
-      
-      <div class="icon-stack">
-        <img src="./assets/cloudIcons/cloudIcon.png" alt="cloud icon"/>
-        
-        <div class="row" style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center; width: 100%; margin-top: 20px;">
-          <img src="./assets/cloudIcons/outgoingBolt-highlight.png" style="animation: moveUpAndDown 2s infinite;" alt="incoming bolt"/>
-          <img src="./assets/cloudIcons/incomingBolt-secondary.png" style="animation: moveDownAndUp 2s infinite;" alt="incoming bolt"/>
-        </div>
-
-        <img src="./assets/cloudIcons/serverIcon.png" style="margin-top: 20px;" alt="server icon"/>
-
-        <div class="title" style="margin-top: 10px;">Sandbox Server</div>
+    <button class="action-icon-button" style="animation: moveUpAndDown 2s infinite;" data-direction="up" data-current-page="PageD" data-next-page="PageC"> 
+      <img src="./assets/actions/arrowUp.png" class="unselectable" alt="An icon indicating upwards movement"/>
+    </button>
+    <div class="title-container">
+      <div class="title" style="color: var(--text-color);">
+        Did something catch your eye?
       </div>
-
-      <div class="icon-stack">
-        <img src="./assets/cloudIcons/cloudIcon.png" alt="cloud icon"/>
-        
-        <div class="row" style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center; width: 100%; margin-top: 20px;">
-          <img src="./assets/cloudIcons/outgoingBolt-secondary.png" style="animation: moveUpAndDown 2s infinite;" alt="incoming bolt"/>
-          <img src="./assets/cloudIcons/incomingBolt-highlight.png" style="animation: moveDownAndUp 2s infinite;" alt="incoming bolt"/>
-        </div>
-
-        <img src="./assets/cloudIcons/terminalIcon.png" style="margin-top: 20px;" alt="server icon"/>
-
-        <div class="title" style="margin-top: 10px;">Sandbox Terminal</div>
+      <div class="title" style="color: var(--highlight-color); margin-top: 10px;">
+        We would love to connect with you!
       </div>
     </div>
 
-    <div class="technology-container"> <!-- Opening: Parent, "technology-container"-->
-      <div class="sub-title" style="font-weight: bold; margin-top: 10px;">Sandbox Computing practices modern cloud computing standards</div>  
-        <div class="technology-icon-container"> <!-- Opening: Child, "technology-icon-container"-->
-          <img src="./assets/corporateIcons/linuxIcon.png">
-          <img src="./assets/corporateIcons/awsIcon.png">
-          <img src="./assets/corporateIcons/googleIcon.png">
-          <img src="./assets/corporateIcons/windowsIcon.png">
-        </div> <!-- Closing: Child, "technology-icon-container"-->
-    </div> <!-- Closing: Parent, "technology-container"-->
-
-    <button class="action-icon-button" style="animation: moveRightAndLeft 2s infinite; margin-top: 10px;" data-direction="right" data-current-page="PageB-1L" data-next-page="PageB">
-      <img src="./assets/actions/arrowRight.png" class="unselectable" alt="An icon indicating upwards movement"/>
-    </button>
-    
+    <div class="form-container">
+      <form action="your-backend-endpoint" method="post">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="referral">Referral (optional):</label>
+          <input type="text" id="referral" name="referral">
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <div class="submit-btn-container">
+          <button type="submit" class="submit-btn">Submit</button>
+        </div>
+      </form>
+    </div>
   </div>
 </body>
 </html>
-
 

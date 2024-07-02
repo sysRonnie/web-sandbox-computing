@@ -126,6 +126,42 @@ body, html {
 .highlight-badge { border: 3px solid; padding: 8px; border-radius: 8px; text-align: center; font-weight: bold;}
 
 
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    background-color: var(--background-color);
+    border: 3px solid var(--highlight-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: var(--text-color);
+  }
+  .form-group textarea {
+    height: 150px;
+    color: var(--text-color);
+  }
+  .submit-btn-container {
+    text-align: center;
+  }
+  .submit-btn {
+    padding: 10px 15px;
+    background-color: var(--highlight-color);
+    color: var(--background-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 16px;
+    font-weight: bold;
+  }
+
 .scatterplot-container {
     height: 30vh;
     width: 80vw;

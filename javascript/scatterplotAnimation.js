@@ -1,24 +1,15 @@
 const margin = {top: 20, right: 30, bottom: 40, left: 40};
 
 function checkAndRunAnimation() {
-    const currentPage = document.querySelector('.visible');
-    if (!currentPage || currentPage.id !== 'PageB-2L') {
-        console.error('Scatterplot Animation paused: current page is not PageB-2L.');
-        return;
+    if (!document.querySelector('#scatterplot-container svg')) {
+        initializeSVG();
     }
-    clearInterval(checkInterval); // Clear the interval once the animation starts
-    setTimeout(() => {
-        forceReflow();
-        if (!document.querySelector('#scatterplot-container svg')) {
-            initializeSVG();
-        }
-        runAnimation();
-    }, 0); // Delay of 2 seconds
+    runAnimation();
 }
 
 function forceReflow() {
     const container = document.getElementById('scatterplot-container');
-    container.getBoundingClientRect(); // This line forces a reflow without hiding the element
+    container.getBoundingClientRect();
 }
 
 function updateDimensions() {
@@ -97,7 +88,7 @@ const generatePoint = (regressionType, correlationType) => {
             yVal = Math.exp((100 - xVal) / 20) + (Math.random() * 20 - 10);
         }
     } else if (regressionType === 'logarithmic') {
-        yVal = Math.log(xVal + 1) * 20 + (Math.random() * 10 - 5); // Example formula for logarithmic data
+        yVal = Math.log(xVal + 1) * 20 + (Math.random() * 10 - 5);
     }
 
     if (yVal < 0) yVal = 1;
@@ -175,7 +166,6 @@ const calculateRegressionLine = (regressionType) => {
             {x: 100, y: slope * 100 + intercept}
         ];
     } else if (regressionType === 'exponential') {
-        // Apply log transformation for exponential regression
         let sumLogY = 0, sumXLogY = 0;
         points.forEach(point => {
             const logY = Math.log(point[1]);
@@ -192,7 +182,6 @@ const calculateRegressionLine = (regressionType) => {
         }
         return curveData;
     } else if (regressionType === 'logarithmic') {
-        // Calculate logarithmic regression
         let sumLogX = 0, sumYLogX = 0, sumLogX2 = 0;
         points.forEach(point => {
             const logX = Math.log(point[0] + 1);
@@ -236,6 +225,7 @@ const drawRegressionLine = (lineData, regressionType) => {
         .attr("stroke-dashoffset", 0)
         .on("end", function() {
             d3.selectAll("circle.actual").classed("glow", false);
+            setTimeout(runAnimation, 2000); // Wait for 2 seconds before starting the next animation
         });
 };
 
@@ -273,13 +263,22 @@ const addPoints = (interval, regressionType, correlationType) => {
             setTimeout(() => {
                 const lineData = calculateRegressionLine(regressionType);
                 if (lineData) drawRegressionLine(lineData, regressionType);
-                setTimeout(() => checkAndRunAnimation(), 3000);
             }, 1000);
         }
     }, interval);
 };
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.id === 'PageB-2L') {
+            checkAndRunAnimation();
+        }
+    });
+}, { threshold: 0.1 });
+
+const targetElement = document.getElementById('PageB-2L');
+observer.observe(targetElement);
+
 window.addEventListener('resize', updateDimensions);
-const checkInterval = setInterval(checkAndRunAnimation, 1000); // Check every second
 updateDimensions();
 
