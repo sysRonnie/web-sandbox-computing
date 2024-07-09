@@ -5,85 +5,137 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Responsive Web Page Animation</title>
 <link rel="stylesheet" href="styles.css">
-<style>
-  .form-container {
-    margin: 20px 0;
-  }
-  .form-group {
-    margin-bottom: 15px;
-  }
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 8px;
-    background-color: var(--background-color);
-    border: 3px solid var(--highlight-color);
-    border-radius: 8px;
-    box-sizing: border-box;
-  }
-  .form-group textarea {
-    height: 150px;
-    color: var(--text-color);
-  }
-  .submit-btn-container {
-    text-align: center;
-  }
-  .submit-btn {
-    padding: 10px 15px;
-    background-color: var(--highlight-color);
-    color: var(--background-color);
-    border: none;
-    cursor: pointer;
-    border-radius: 16px;
-    font-weight: bold;
-  }
-  
-</style>
 </head>
+<style>
+
+
+.page {
+  text-align: center;
+}
+
+.loading-bar-container {
+  width: 100%;
+  max-width: 400px;
+  height: 20px;
+  background-color: #ddd;
+  margin: 20px auto 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.loading-bar {
+  width: 0;
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: 10px 0 0 10px;
+}
+
+
+</style>
+
+
 <body>
-  <div class="page">
-    <button class="action-icon-button" style="animation: moveUpAndDown 2s infinite;" data-direction="up" data-current-page="PageD" data-next-page="PageC"> 
-      <img src="./assets/actions/arrowUp.png" class="unselectable" alt="An icon indicating upwards movement"/>
-    </button>
-    <div class="title-container">
-      <div class="title" style="color: var(--text-color);">
-        Did something catch your eye?
-      </div>
-      <div class="title" style="color: var(--highlight-color); margin-top: 10px;">
-        We would love to connect with you!
-      </div>
+  <div id="LoadingPage" class="page visible">
+
+    <img src="./assets/mainLogo_2.png" />
+    <div class="loading-bar-container">
+      <div class="loading-bar"></div>
+    </div>
+    <div class="title" style="margin-top: 10px;">
+      Hold on tight!
+    </div>
+    <div class="title">
+      Your experience is loading...
     </div>
 
-    <div class="form-container">
-      <form action="your-backend-endpoint" method="post">
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-          <label for="referral">Referral (optional):</label>
-          <input type="text" id="referral" name="referral">
-        </div>
-        <div class="form-group">
-          <label for="message">Message:</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <div class="submit-btn-container">
-          <button type="submit" class="submit-btn">Submit</button>
-        </div>
-      </form>
-    </div>
   </div>
+
+
+  <div id="PageA" class="page hidden"> <!-- OPENING: Page, "PageA" -->
+    <div class="sandbox-cube"> <!-- OPENING: Parent, "sandbox-cube" -->
+        <div class="sandbox-cube-face front"></div>
+        <div class="sandbox-cube-face back"></div>
+        <div class="sandbox-cube-face left"></div>
+        <div class="sandbox-cube-face right"></div>
+        <div class="sandbox-cube-face top"></div>
+        <div class="sandbox-cube-face bottom"></div>
+        <img class="moon" src="./assets/quarterMoon_teal.png" alt="moon logo" />
+    </div>  <!-- CLOSING: Parent, "sandbox-cube" -->
+
+    <div class="website-title"> <!-- OPENING: Parent, "website-title" -->
+        <div class="card"> <!-- OPENING: Child, "card" -->
+            <div class="title" style="color: var(--primary-color)">
+                SANDBOX COMPUTING
+            </div>
+            <div class="title"> 
+                WHERE 
+                <span style="color: var(--secondary-color);"> 
+                    IMAGINATION 
+                </span> 
+                MEETS 
+                <span style="color: var(--highlight-color)">
+                REALITY.
+                </span>
+            </div>
+        </div> <!-- CLOSING: Child, "card" -->
+
+        <div class="spacer"></div> <!-- SPACER -->
+        
+        <div class="card"> <!-- OPENING: Child, "card" -->
+                <div class="title" style="color: var(--tertiary-color)"> 
+                    CUSTOM COMPUTING SOLUTIONS 
+                </div>
+                <div class="title" style="color: var(--highlight-color)"> 
+                    CHAMPIONSHIP WINNING PRODUCTS 
+                </div>
+        </div> <!-- CLOSING: Child, "card" -->
+    </div> <!-- CLOSING: Parent, "website-title" -->
+
+    <div class="card"> <!-- OPENING: Child, "card" -->
+        <img src="./assets/americanFlag.png" alt="American Flag"/>
+        <button class="action-button" data-direction="down" data-current-page="PageA" data-next-page="PageB">
+            Care to explore? 
+        </button>            
+        <button class="action-icon-button" style="animation: moveDownAndUp 2s infinite; margin-top: 10px;" data-direction="down" data-current-page="PageA" data-next-page="PageB"> 
+            <img src="./assets/actions/arrowDown-bare.png" class="unselectable" alt="An icon indicating upwards movement"/>
+        </button>
+    </div> <!-- CLOSING: Child, "card" -->
+</div> <!-- CLOSING: Page, "PageA" -->
 </body>
+
+<script>
+  window.onload = function() {
+    let loadingBar = document.querySelector('.loading-bar');
+    let loadingPage = document.getElementById('LoadingPage');
+    let pageA = document.getElementById('PageA');
+    let width = 0;
+    let interval = setInterval(function() {
+      if (width >= 100) {
+        clearInterval(interval);
+        
+        // Start the fade-out effect for the loading page
+        loadingPage.style.opacity = 0;
+        setTimeout(() => {
+          // After the fade-out is complete, hide the loading page
+          loadingPage.classList.add('hidden');
+          
+          // Make PageA visible and set its opacity to 0 initially
+          pageA.classList.remove('hidden');
+          pageA.style.opacity = 0;
+          setTimeout(() => {
+            // Start the fade-in effect for PageA
+            pageA.style.opacity = 1;
+          }, 10); // Slight delay to ensure the transition occurs
+        }, 1000); // 1 second for fade-out
+      } else {
+        width++;
+        loadingBar.style.width = width + '%';
+      }
+    }, 10); // 3000ms / 100 steps = 30ms per step
+  };
+</script>
+
+</script>
+
 </html>
 

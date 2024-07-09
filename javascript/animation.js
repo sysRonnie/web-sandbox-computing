@@ -94,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function initializeAnimation() {
         const currentPage = document.querySelector('.visible');
         if (!currentPage || currentPage.id !== 'PageA') {
-            console.error('Animation paused: current page is not PageA.');
             setTimeout(initializeAnimation, 1000); // Pause for a cycle before rechecking
             return;
         }

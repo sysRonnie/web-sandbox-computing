@@ -99,7 +99,7 @@ function updateNodeStyles(svg, currentPage) {
 
 function createVisualization(data) {
     const width = window.innerWidth * 1.1;
-    const height = window.innerHeight * 0.7;
+    const height = window.innerHeight * 0.6;
     const currentPage = document.querySelector('.visible').id;
 
     const svg = d3.select('#visualization')
@@ -110,7 +110,7 @@ function createVisualization(data) {
     const simulation = d3.forceSimulation(data.nodes)
         .force('link', d3.forceLink(data.links).id(d => d.id).distance(100))
         .force('charge', d3.forceManyBody().strength(-300))
-        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('center', d3.forceCenter(width / 2, height / 2.5))
         .force('x', d3.forceX().strength(0.1).x(d => {
             if (d.id === 'PageA') return width / 2;
             if (d.id === 'PageB-1L') return width / 2 - 200;
@@ -175,23 +175,7 @@ function createVisualization(data) {
             .attr('transform', d => `translate(${d.x},${d.y})`);
     });
 
-    svg.append('text')
-        .attr('x', width / 2)
-        .attr('y', 20) // Adjust this value to position the text
-        .attr('text-anchor', 'middle')
-        .attr('font-size', '1.25rem')
-        .attr('class', 'unselectable')
-        .attr('fill', '#FFFFFF')
-        .text('Welcome to the Sandbox Terminal!');
-
-    svg.append('text')
-    .attr('x', width / 2)
-    .attr('y', 50) // Adjust this value to position the text
-    .attr('text-anchor', 'middle')
-    .attr('font-size', '1rem')
-    .attr('class', 'unselectable')
-    .attr('fill', '#FFFFFF')
-    .text('Please tap on your desired location to initate travel');
+    
 
     
 

@@ -10,9 +10,12 @@ class NavigationMap {
     }
 
     addConnection(from, to, direction) {
+        if (!this.pages[from]) {
+            this.addPage(from); // Ensure the 'from' page exists before adding a connection
+        }
         this.pages[from].push({ to, direction });
     }
-
+    
     getConnections(page) {
         return this.pages[page] || [];
     }

@@ -45,6 +45,7 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: opacity 1s ease-in-out;
 }
 
 .action-button{
@@ -119,6 +120,23 @@ body, html {
 /* FINISH: Base Components */
 
 /* START: DYNAMIC COMPONENTS */
+
+.loading-bar-container {
+    width: 100%;
+    max-width: 400px;
+    height: 20px;
+    background-color: #ddd;
+    margin: 20px auto 0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .loading-bar {
+    width: 0;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 10px 0 0 10px;
+  }
 
 .design-animation-container { margin-top: 10px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 2px; grid-template-rows: repeat(7, 1fr); width: 90vw; height: 30vh; max-width: 600px; }
 .design-animation-cell { width: 100%; height: 100%; border: 1px solid var(--background-color); border-radius: 5px; box-sizing: border-box; display: flex; justify-content: center; align-items: center; }
@@ -352,6 +370,33 @@ body, html {
 }
 /* FINISH: Sandbox Cube */
 
+.orb {
+    position: absolute;
+    border-radius: 50%; /* Makes the orb circular */
+
+    /* Set the primary color to white */
+    background: #F3EAD3; 
+
+    /* Initial box shadow for a glowing effect */
+    box-shadow: 0 0 15px 5px var(--secondary-color); /* Outer glow */
+
+    /* Pulsating effect */
+    animation: pulsate 2s infinite ease-in-out;
+}
+
+/* Keyframes for the pulsating effect */
+@keyframes pulsate {
+    0% {
+        box-shadow: 0 0 10px 0px var(--secondary-color);
+    }
+    50% {
+        box-shadow: 0 0 20px 5px var(--secondary-color);
+    }
+    100% {
+        box-shadow: 0 0 10px 0px var(--secondary-color);
+    }
+}
+
 /* START: Rocketship Animation */
 .rocketship {
     position: absolute;
@@ -482,6 +527,8 @@ animation: pulse 2s infinite; /* Adjust the duration as needed */
         filter: drop-shadow(0 0 5px var(--primary-color));
       }
 }
+
+
 
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------------- */
