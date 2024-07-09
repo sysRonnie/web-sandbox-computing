@@ -99,7 +99,7 @@ function updateNodeStyles(svg, currentPage) {
 
 function createVisualization(data) {
     const width = window.innerWidth * 1.1;
-    const height = window.innerHeight * 0.7;
+    const height = window.innerHeight * 0.65;
     const currentPage = document.querySelector('.visible').id;
 
     const svg = d3.select('#visualization')
@@ -108,7 +108,7 @@ function createVisualization(data) {
         .attr('height', height);
 
     const simulation = d3.forceSimulation(data.nodes)
-        .force('link', d3.forceLink(data.links).id(d => d.id).distance(100))
+        .force('link', d3.forceLink(data.links).id(d => d.id).distance(75))
         .force('charge', d3.forceManyBody().strength(-300))
         .force('center', d3.forceCenter(width / 2, height / 2))
         .force('x', d3.forceX().strength(0.1).x(d => {
@@ -128,7 +128,7 @@ function createVisualization(data) {
             if (d.id === 'PageB-2L') return height / 2 + 100;
             if (d.id === 'PageB-2R') return height / 2 + 100;
             if (d.id === 'PageB') return height / 2;
-            if (d.id === 'PageC') return height / 2 + 200;
+            if (d.id === 'PageC') return height / 2 + 75;
             if (d.id === 'PageD') return height / 2 + 300;
         }));
 
