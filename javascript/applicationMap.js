@@ -99,7 +99,7 @@ function updateNodeStyles(svg, currentPage) {
 
 function createVisualization(data) {
     const width = window.innerWidth * 1.1;
-    const height = window.innerHeight * 0.65;
+    const height = window.innerHeight * 0.7;
     const currentPage = document.querySelector('.visible').id;
 
     const svg = d3.select('#visualization')
@@ -122,7 +122,7 @@ function createVisualization(data) {
             if (d.id === 'PageD') return width / 2;
         }))
         .force('y', d3.forceY().strength(0.1).y(d => {
-            if (d.id === 'PageA') return height / 2 - 300;
+            if (d.id === 'PageA') return height / 2 - 400;
             if (d.id === 'PageB-1L') return height / 2 - 100;
             if (d.id === 'PageB-1R') return height / 2 - 100;
             if (d.id === 'PageB-2L') return height / 2 + 100;
@@ -217,6 +217,8 @@ async function nodeClicked(node) {
         return;
     }
 
+    console.log("Node Clicked!");
+
     isNavigating = true;
 
     const navbar = document.querySelector('.navbar');
@@ -260,6 +262,11 @@ async function nodeClicked(node) {
     async function executePath(path) {
         for (let i = 1; i < path.length; i++) {
             const currentPage = document.getElementById(path[i - 1]);
+            console.log(currentPage);
+            if (currentPage === 'LoadingPage') {
+                currentPage = 'PageA';
+            }
+            console.log(currentPage);
             const nextPage = document.getElementById(path[i]);
             const connection = navMap.getConnections(currentPage.id).find(c => c.to === nextPage.id);
 
@@ -274,6 +281,7 @@ async function nodeClicked(node) {
             }
         }
     }
+
 
     await executePath(path);
     
